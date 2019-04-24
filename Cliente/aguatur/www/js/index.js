@@ -16,31 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ // variables con los div padres
+var initApp,panelRegisterLogin,login,register;
 var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    initilize:function(){
+        // asignacion de variables
+        initApp = document.getElementById("initApp");
+        panelRegisterLogin = document.getElementById("panelRegisterLogin");
+        login = document.getElementById("login");
+        register = document.getElementById("register");
+        document.getElementById("register")
+        panelRegisterLogin.className = "hidden";
+        login.className = "hidden";
+        register.className = "hidden";
+        setTimeout(function(){
+            initApp.className = "hidden";
+            panelRegisterLogin.className = "toShow";
+        }, 5000);
+        //
     }
-};
 
-app.initialize();
+};
+app.initilize();

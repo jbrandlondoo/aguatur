@@ -33,17 +33,66 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>AguaTur</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <!-- pantalla inicial con el logo -->
+        <div id="initApp" class="">
+            
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+    <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
+        <div id="panelRegisterLogin" class="">
+            <input type="Button" value="INICIAR SESIÓN" id="initSesion" name="">
+            <input type="Button" value="REGISTRARME" id="registerRL" name="">
+            <p>¿Cuáles son los <a href="#">beneficios</a></p>
+            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredRL" name="">
+        </div>
+    <!-- panel de login con los campos de ingreso de user y password, ademas de la posibilidad de restablecer password -->
+        <div id="login" class="">
+            <input type="text" placeholder="USUARIO" name="">
+            <input type="password" placeholder="CONTRASEÑA" name="">
+            <p>Restablecer <a href="#">contraseña</a></p>
+            <input type="Button" value="REGISTRARME" id="registerL" name="">
+            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredL" name="">
+        </div>
+    <!-- panel para el resgistro de usuarios -->
+        <div id="register" class="">
+            <form action="">
+                <div>
+                    <input type="text" placeholder="Nombre Y Apellido" name="">
+                </div>
+                <div>
+                    <select>
+                        <option>CC</option>
+                        <option>TP</option>
+                        <option>CE</option>
+                    </select>
+                    <input type="Number" placeholder="N° de identificación" name="">
+                </div>
+                <div>
+                    <input type="Number" placeholder="Número Celular" name="">
+                </div>
+                <div>
+                    <select>
+                        <option>F</option>
+                        <option>M</option>
+                        <option>O</option>
+                    </select>
+                     <input type="datetime-local" name="bdaytime">
+                </div>
+                <div>
+                    <input type="email" placeholder="Correo Electrónico" name="">
+                </div>
+
+                <input type="submit" name="">
+            </form>
+            <input type="Button" value="Cancelar" id="cancelRegister" name="">
+
+            <p>¿Cuáles son los <a href="#">beneficios</a></p>
+            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
+        </div>
+
+
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
