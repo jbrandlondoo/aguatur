@@ -1,40 +1,84 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
+// son variables que se llenan luego de click ene le boton de enviar  dataRegister -- dataLogin -- dataUpdate
+
+
  // variables con los div padres
-var initApp,panelRegisterLogin,login,register;
+var panelRegisterLogin,login,register,home;
+var reserve,editInformation,viewReserves;
+
+
+var dataRegister,dataLogin,dataUpdate;
+
 var app = {
-    initilize:function(){
+    initilize:()=>{
         // asignacion de variables
-        initApp = document.getElementById("initApp");
+        //div padres
         panelRegisterLogin = document.getElementById("panelRegisterLogin");
         login = document.getElementById("login");
         register = document.getElementById("register");
-        document.getElementById("register")
-        panelRegisterLogin.className = "hidden";
+        home = document.getElementById("home");
+        reserve = document.getElementById("reserve");
+        editInformation = document.getElementById("editInformation");
+        viewReserves = document.getElementById("viewReserves");
+        //asignacion de eventos
+        document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
+        document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
+        document.getElementById("registerL").addEventListener("click",()=>{app.changeView(login,register)});
+        document.getElementById("initNotRegisteredRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,home)});
+        document.getElementById("initNotRegisteredL").addEventListener("click",()=>{app.changeView(login,home)});
+        document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
+        document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
+
+        //iniciacion vistas
+        panelRegisterLogin.className = "toShow";
         login.className = "hidden";
         register.className = "hidden";
-        setTimeout(function(){
-            initApp.className = "hidden";
-            panelRegisterLogin.className = "toShow";
-        }, 5000);
-        //
+        home.className = "hidden";
+        reserve.className = "hidden";
+        editInformation.className = "hidden";
+        viewReserves.className = "hidden";
+
+    },
+
+    changeView:(idViewOld,idViewNew)=>{
+        idViewOld.className = "hidden";
+        idViewNew.className = "toShow";
     }
 
 };
 app.initilize();
+
+
+
+
+// eventos que se disparan con el boton de submit jquery
+$('#formRegisterData').submit(function (e) {
+    e.preventDefault();
+    var arrayData = new Array();
+    var data = $(this).serializeArray();
+    data.forEach((item)=>{
+        arrayData[item.name] = item.value;
+    });
+    dataRegister = arrayData;
+});
+
+$('#formLoginData').submit(function (e) {
+    e.preventDefault();
+    var arrayData = new Array();
+    var data = $(this).serializeArray();
+    data.forEach((item)=>{
+        arrayData[item.name] = item.value;
+    });
+    dataLogin = arrayData;
+});
+
+$('#registerData').submit(function (e) {
+    e.preventDefault();
+    var arrayData = new Array();
+    var data = $(this).serializeArray();
+    data.forEach((item)=>{
+        arrayData[item.name] = item.value;
+    });
+    dataUpdate = arrayData;
+});
+
