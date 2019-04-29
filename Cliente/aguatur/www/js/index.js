@@ -30,9 +30,9 @@ var app = {
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 
         //iniciacion vistas
-        panelRegisterLogin.className = "toShow";
+        panelRegisterLogin.className = "hidden";
         login.className = "hidden";
-        register.className = "hidden";
+        register.className = "toShow";
         home.className = "hidden";
         reserve.className = "hidden";
         editInformation.className = "hidden";

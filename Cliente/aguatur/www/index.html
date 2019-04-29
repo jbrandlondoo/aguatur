@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -20,7 +20,7 @@
         <div id="login" class="">
             <form id="formLoginData">
                 <div>
-                    <input type="text" placeholder="Usuario" name="name" required>
+                    <input type="text" placeholder="Email" name="name" required>
                     <input type="password" placeholder="Contraseña" minlength="6" name="password" required>
                 </div>
                 <input type="submit" value="Entrar" name="">
@@ -34,16 +34,16 @@
         <div id="register" class="">
             <form id="formRegisterData">
                 <div>
-                    <input type="text" placeholder="Nombre Y Apellido" name="name" required>
+                    <input type="text" placeholder="Nombre Y Apellido" name="name" required id="regName">
                 </div>
                 <div>
-                    <input type="email" placeholder="Correo Electrónico" name="email" required>
+                    <input type="email" placeholder="Correo Electrónico" name="email" required id="regEmail">
                 </div>
                 <div>
-                    <input type="password" minlength="6" placeholder="Contraseña" name="password" required>
-                    <input type="password" minlength="6" placeholder="Confirmar Contraseña" name="confirm_password" required>
+                    <input type="password" minlength="6" placeholder="Contraseña" name="password" required id="regPass">
+                    <input type="password" minlength="6" placeholder="Confirmar Contraseña" name="confirm_password" required id="confSpace">
                 </div>
-                <input type="submit" value="Registrarme" name="">
+                <input type="submit" value="Registrarme" name="" id="makeRegister">
             </form>
             <input type="Button" value="Cancelar" id="cancelRegister" name="">
 
@@ -103,8 +103,10 @@
             
         </div>
 
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
         <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-
+        <script type="text/javascript" src="js/databaseController.js"></script>
     </body>
 </html>
