@@ -10,14 +10,14 @@
     </head>
     <body>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
-        <div id="panelRegisterLogin" class="">
+        <div id="panelRegisterLogin" class="show">
             <input type="Button" value="INICIAR SESIÓN" id="initSesion" name="">
             <input type="Button" value="REGISTRARME" id="registerRL" name="">
             <p>¿Cuáles son los <a href="#">beneficios</a></p>
             <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredRL" name="">
         </div>
     <!-- panel de login con los campos de ingreso de user y password, ademas de la posibilidad de restablecer password -->
-        <div id="login" class="">
+        <div id="login" class="hidden">
             <form id="formLoginData">
                 <div>
                     <input type="text" placeholder="Email" name="name" required>
@@ -31,7 +31,7 @@
             <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredL" name="">
         </div>
     <!-- panel para el resgistro de usuarios -->
-        <div id="register" class="">
+        <div id="register" class="hidden">
             <form id="formRegisterData">
                 <div>
                     <input type="text" placeholder="Nombre Y Apellido" name="name" required id="regName">
@@ -51,15 +51,15 @@
             <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
         </div>
     <!-- campo para fotos e información -->
-        <div id="home">
+        <div id="home" class="hidden">
             
         </div>
     <!-- realizacion de la reserva -->
-        <div id="reserve">
+        <div id="reserve" class="hidden">
             
         </div>
     <!-- campos para editar información -->
-        <div id="editInformation">
+        <div id="editInformation" class="hidden">
             <form id="formUpdateData">
                 <div>
                     <input type="text" placeholder="Nombre Y Apellido" name="">
@@ -99,7 +99,7 @@
             <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
         </div>
     <!-- campo para ver reservas -->
-        <div id="viewReserves">
+        <div id="viewReserves" class="hidden">
             
         </div>
 

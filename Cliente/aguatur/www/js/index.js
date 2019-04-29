@@ -1,7 +1,6 @@
 
 // son variables que se llenan luego de click ene le boton de enviar  dataRegister -- dataLogin -- dataUpdate
 
-
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
 var reserve,editInformation,viewReserves;
@@ -29,20 +28,11 @@ var app = {
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 
-        //iniciacion vistas
-        panelRegisterLogin.className = "hidden";
-        login.className = "hidden";
-        register.className = "toShow";
-        home.className = "hidden";
-        reserve.className = "hidden";
-        editInformation.className = "hidden";
-        viewReserves.className = "hidden";
-
     },
 
     changeView:(idViewOld,idViewNew)=>{
         idViewOld.className = "hidden";
-        idViewNew.className = "toShow";
+        idViewNew.className = "show";
     }
 
 };
@@ -59,7 +49,8 @@ $('#formRegisterData').submit(function (e) {
     data.forEach((item)=>{
         arrayData[item.name] = item.value;
     });
-    dataRegister = arrayData;
+    start();
+    putRegister(arrayData);
 });
 
 $('#formLoginData').submit(function (e) {
