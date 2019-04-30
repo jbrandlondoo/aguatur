@@ -1,14 +1,11 @@
 var config;
 var btnReg='';
 var txtName, txtEmailAd, txtPass, txtVerPass;
-var db;
+
 window.onload = start;
 
 function start(){
 config = databaseConfig();
-db = firebase.firestore()
-initializeVariables();
-events();
 
 }
 
@@ -25,53 +22,50 @@ function databaseConfig(){
   firebase.initializeApp(config);
 }
 
-function initializeVariables(){
-
-  btnReg = document.getElementById('makeRegister');
-  
-}
-
-function events(){
-  btnReg.addEventListener("click",putRegister);
-}
-
-function putRegister(){
-  getTypedData();
-  if(verifyData()){
+function putRegister(dataRegister){
+  var db = firebase.firestore()
     db.collection("Registrados").doc().set({
-      Correo:txtEmailAd,
-      Nombre:txtName,
-      Password:txtPass
+      Correo:dataRegister["email"],
+      Nombre:dataRegister["name"],
+      Password:dataRegister["password"]
     })
     .then(function(){
       console.log("Documento esctrito")
     })
     .catch(function(error){
-      console.error("Error escribiendo a su mama: ",error)
+      console.error("Error escribiendo el documento: ",error)
     });
-  }
-  else{
-    console.log("No envíado");
-  }
 }
 
-function getRegisteredData(){
-  
-}
 
-function getTypedData(){
-  txtName = document.getElementById('regName').value;
-  txtEmailAd = document.getElementById('regEmail').value;
-  txtPass = document.getElementById('regPass').value;
-  txtVerPass = document.getElementById('confSpace').value;
-}
+function findAccount(email, password){  
+    var db = firebase.firestore();
+    var data = null;
 
-function verifyData(){
-  if (verifyEmail(txtEmailAd)&&(txtPass.length>=6)&&(txtName.length>0)&&(txtPass.localeCompare(txtVerPass)==0)) return true;
-  else return false;
-}
-function verifyEmail( email ) 
-{
-    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email) ? true : false;
+    db.collection("Registrados").where("Correo","==", email)
+    .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              let promesa = new Promise()
+
+              if(password.localeCompare(doc.data().Password) == 0){
+                console.log(doc.id, " => ", doc.data().Nombre, "Registro encontrado");
+                data={
+                  id:doc.id,
+                  nombre:doc.data().Nombre,
+                  correo:doc.data().Combre,
+                  contraseña:doc.data().Password
+              };
+              console.log(JSON.stringify(data)+"neaaa");
+              resolve(data);
+              }
+                          
+          });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });         
+
+  console.log("No se encontró registro");  
+
 }
