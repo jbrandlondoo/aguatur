@@ -1,12 +1,12 @@
 var config;
 var btnReg='';
 var txtName, txtEmailAd, txtPass, txtVerPass;
-var db;
-//window.onload = start;
+
+window.onload = start;
 
 function start(){
 config = databaseConfig();
-db = firebase.firestore()
+
 }
 
 
@@ -23,6 +23,7 @@ function databaseConfig(){
 }
 
 function putRegister(dataRegister){
+  var db = firebase.firestore()
     db.collection("Registrados").doc().set({
       Correo:dataRegister["email"],
       Nombre:dataRegister["name"],
@@ -32,6 +33,39 @@ function putRegister(dataRegister){
       console.log("Documento esctrito")
     })
     .catch(function(error){
-      console.error("Error escribiendo a su mama: ",error)
+      console.error("Error escribiendo el documento: ",error)
     });
+}
+
+
+function findAccount(email, password){  
+    var db = firebase.firestore();
+    var data = null;
+
+    db.collection("Registrados").where("Correo","==", email)
+    .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              let promesa = new Promise()
+
+              if(password.localeCompare(doc.data().Password) == 0){
+                console.log(doc.id, " => ", doc.data().Nombre, "Registro encontrado");
+                data={
+                  id:doc.id,
+                  nombre:doc.data().Nombre,
+                  correo:doc.data().Combre,
+                  contraseña:doc.data().Password
+              };
+              console.log(JSON.stringify(data)+"neaaa");
+              resolve(data);
+              }
+                          
+          });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });         
+
+  console.log("No se encontró registro");  
+
 }
