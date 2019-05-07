@@ -6,7 +6,6 @@ window.onload = start;
 
 function start(){
 config = databaseConfig();
-
 }
 
 
@@ -39,33 +38,38 @@ function putRegister(dataRegister){
 
 
 function findAccount(email, password){  
-    var db = firebase.firestore();
-    var data = null;
+  var db = firebase.firestore();
+  let data, flag;
 
-    db.collection("Registrados").where("Correo","==", email)
-    .get()
-      .then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
-              let promesa = new Promise()
+   db.collection("Registrados").where("Correo","==", email).where("Password","==", password)
+  .get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {            
+            
+            if(doc.exists){              
+              data={
+                id:doc.id,
+                nombre:doc.data().Nombre,
+                correo:doc.data().Correo,                                
+            };
+              flag = true;
+            }                        
+        });
+    }).then(()=>{
+      if(flag) {
+        console.log("El id es: "+data.id, " y el nombre es:"+data.nombre);
+        saveSession(data);
+        console.log("Se encontró, sesión guardada en almacenamiento");
 
-              if(password.localeCompare(doc.data().Password) == 0){
-                console.log(doc.id, " => ", doc.data().Nombre, "Registro encontrado");
-                data={
-                  id:doc.id,
-                  nombre:doc.data().Nombre,
-                  correo:doc.data().Combre,
-                  contraseña:doc.data().Password
-              };
-              console.log(JSON.stringify(data)+"neaaa");
-              resolve(data);
-              }
-                          
-          });
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });         
+      }
+      else{
+        console.log("No se encontró registro");  
+      }
+    }
 
-  console.log("No se encontró registro");  
-
+    )
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    }); 
+   
 }
