@@ -6,49 +6,89 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <title>AguaTur</title>
     </head>
     <body>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
         <div id="panelRegisterLogin" class="show">
-            <input type="Button" value="INICIAR SESIÓN" id="initSesion" name="">
-            <input type="Button" value="REGISTRARME" id="registerRL" name="">
-            <p>¿Cuáles son los <a href="#">beneficios</a></p>
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredRL" name="">
+            <div id="logo">
+                <img src="img/app/inicio-app/logo-256px.png">
+            </div>
+            <div class="buttonInicio">
+                <button id="initSesion" class="buttonIMG210x50"><img src="img/app/inicio-app/iniciar-sesion-210x50px.png"></button>
+            </div>
+            <div class="buttonInicio">
+                <button id="registerRL" class="buttonIMG210x50"><img src="img/app/inicio-app/registrarme-210x50px.png"></button>
+            </div>
+                <p class="pbeneficios">¿Cuáles son los <a class="abeneficios" href="#"><b>beneficios?</b></a></p>
+            <div class="divInitNotRegisteredRL">
+                <button id="initNotRegisteredRL" class="buttonIMG91x15"><img src="img/app/inicio-app/sin-registro-91x15px.png"></button>
+            </div>
         </div>
     <!-- panel de login con los campos de ingreso de user y password, ademas de la posibilidad de restablecer password -->
         <div id="login" class="hidden">
+            <div id="logo">
+                <img src="img/app/inicio-app/logo-256px.png">
+            </div>
             <form id="formLoginData">
                 <div>
-                    <input type="text" placeholder="Email" name="name" required>
-                    <input type="password" placeholder="Contraseña" minlength="6" name="password" required>
+                    <div class="divLoginItem">
+                        <input type="text" class="inputForm" placeholder="Email" name="name" required>
+                    </div>
+                    <div class="divLoginItem"> 
+                        <input type="password" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
+                    </div>
                 </div>
-                <input type="submit" value="Entrar" name="">
+                <button type="submit" class="loginBTN">
+                    <img src="img/app/iniciar-sesion/ingresar-210x50px.png">
+                </button>
             </form>
-           
-            <p>Restablecer <a href="#">contraseña</a></p>
-            <input type="Button" value="REGISTRARME" id="registerL" name="">
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredL" name="">
+            <div>    
+                <button class="restartPass">
+                        <img src="img/app/iniciar-sesion/restablecer-150x10px.png">
+                </button>
+            </div>
+            <div class="divReturnL">    
+                <button id="returnL">
+                    <img src="img/app/iniciar-sesion/volver-50x20px.png">
+                </button>
+            </div>
         </div>
     <!-- panel para el resgistro de usuarios -->
         <div id="register" class="hidden">
+            <div class="logoRegister">
+                <img src="img/app/registro/logo-128px.png">
+            </div>
             <form id="formRegisterData">
-                <div>
-                    <input type="text" placeholder="Nombre Y Apellido" name="name" required id="regName">
+                <div class="divRegisterItem">
+                    <input type="text" class="inputForm" placeholder="Nombre Y Apellido" name="name" required id="regName">
                 </div>
-                <div>
-                    <input type="email" placeholder="Correo Electrónico" name="email" required id="regEmail">
+                <div class="divRegisterItem">
+                    <input type="email" class="inputForm" placeholder="Correo Electrónico" name="email" required id="regEmail">
                 </div>
-                <div>
-                    <input type="password" minlength="6" placeholder="Contraseña" name="password" required id="regPass">
-                    <input type="password" minlength="6" placeholder="Confirmar Contraseña" name="confirm_password" required id="confSpace">
+                <div class="divRegisterItem">
+                    <input type="password" class="inputForm" minlength="6" placeholder="Contraseña" name="password" required id="regPass">
                 </div>
-                <input type="submit" value="Registrarme" name="" id="makeRegister">
+                <div class="divRegisterItem">
+                    <input type="password" class="inputForm" minlength="6" placeholder="Confirmar Contraseña" name="confirm_password" required id="confSpace">
+                </div>   
+                    <button type="submit" id="makeRegister">
+                        <img src="img/app/registro/registrarme-210x50px.png">
+                    </button>
             </form>
-            <input type="Button" value="Cancelar" id="cancelRegister" name="">
-
-            <p>¿Cuáles son los <a href="#">beneficios</a></p>
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
+            <button id="cancelRegister">
+                <img src="img/app/registro/cancelar-210x50px.png">
+            </button>
+            <div class="divFootRegister">
+                <button id="showB">
+                    <img src="img/app/registro/beneficios-117x10px.png"> 
+                </button>
+                <p>   </p>
+                <button id="initNotRegisteredR">
+                    <img src="img/app/registro/sin-registro-91x15px.png">
+                </button>
+            </div>
         </div>
     <!-- campo para fotos e información -->
         <div id="home" class="hidden">

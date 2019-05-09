@@ -22,9 +22,8 @@ var app = {
         //asignacion de eventos
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
-        document.getElementById("registerL").addEventListener("click",()=>{app.changeView(login,register)});
         document.getElementById("initNotRegisteredRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,home)});
-        document.getElementById("initNotRegisteredL").addEventListener("click",()=>{app.changeView(login,home)});
+        document.getElementById("returnL").addEventListener("click",()=>{app.changeView(login,panelRegisterLogin)});
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 

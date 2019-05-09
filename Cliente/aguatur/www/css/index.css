@@ -1,7 +1,213 @@
 
+html, body{
+  height:100%;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+}
+
  .hidden{
     display: none;
  }
  .show{
     display: block;
  }
+
+/*--------------------------------------estos es el css del div panelRegisterLogin y todo lo que hay dentro*/
+ /*Buttons*/
+ .buttonIMG210x50{
+ 	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 210px;
+ 	height: 50px;
+ }
+
+ .buttonIMG91x15{
+ 	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 91px;
+ 	height: 15px;
+ }
+
+ /*p*/
+ /*class*/
+ .pbeneficios{
+ 	color: white;
+ 	text-decoration: underline;
+ }
+
+
+ /*a*/
+ /*class*/
+ .abeneficios{
+ 	color: white;
+ }
+
+/*div*/
+/*por id*/
+#panelRegisterLogin{
+   background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+   height: 100%;
+   width: 100% ;
+   margin: 0px;
+   background-size: 100%;
+   text-align: center;
+}
+#logo{
+	background-image: url(../img/app/inicio-app/cabezote-inicio-360x260px.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 360px;
+	margin: 0px;
+	text-align: center;
+	padding-top: 50px;
+}
+/*por class*/
+.buttonInicio{
+	width: 100%;
+	height: 70px;
+	text-align: center;
+}
+.divInitNotRegisteredRL{
+    margin-top: 54px;
+    text-align: right;
+    padding-right: 37px;
+}
+/*---------------fin*/
+
+/*--------------------------------------estos es el css del div login y todo lo que hay dentro*/
+ /*Buttons*/
+ .loginBTN{
+ 	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 210px;
+ 	height: 50px;
+ }
+.restartPass{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 150px;
+ 	height: 10px;
+}
+
+#returnL{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 50px;
+ 	height: 20px;
+}
+ /*div*/
+
+#login{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+   height: 100%;
+   width: 100% ;
+	background-size: 100%;
+   text-align: center;
+}
+
+.divReturnL{
+	margin-top: 20px;
+    text-align: center;
+}
+
+.divLoginItem{
+	height:70px; 
+}
+/*por class*/
+.buttonInicio{
+	width: 100%;
+	height: 70px;
+	text-align: center;
+}
+.divInitNotRegisteredRL{
+    margin-top: 54px;
+    text-align: right;
+    padding-right: 37px;
+}
+
+/*inptu*/
+.inputForm{
+	height: 40px;
+	width: 250px;
+	background-color: rgb(234, 233, 233,0.61);
+	border: none;
+ 	outline:none;
+	border-radius: 6px;
+}
+/*---------------fin*/
+
+/*--------------------------------------estos es el css del div register y todo lo que hay dentro*/
+ /*Buttons*/
+ #makeRegister{
+ 	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 210px;
+ 	height: 50px;
+ }
+#showB{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 117px;
+ 	height: 10px;
+}
+
+#initNotRegisteredR{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 91px;
+ 	height: 15px;
+}
+ /*div*/
+#cancelRegister{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 210px;
+ 	height: 50px;
+}
+#register{
+   background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+   height: 100%;
+   width: 100% ;
+   margin: 0px;
+   background-size: 100%;
+   text-align: center;
+}
+
+.logoRegister{
+	background-image: url(../img/app/registro/cabezote-registro-360x110px.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 110px;
+	margin: 0px;
+	text-align: center;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+.divRegisterItem{
+	height: 50px;
+}
+
+.divFootRegister{
+	margin-top: 40px;
+}
+/*inptu*/
+
+/*---------------fin*/
+
+
+
+
+
