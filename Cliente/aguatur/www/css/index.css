@@ -1,6 +1,6 @@
 
-html, body{
-  height:100%;
+html:-moz-full-screen{
+	height: 100%;
   margin:0;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ html, body{
     text-align: right;
     padding-right: 37px;
 }
-/*---------------fin*/
+/*---------------fin panelregisterlogin*/
 
 /*--------------------------------------estos es el css del div login y todo lo que hay dentro*/
  /*Buttons*/
@@ -141,7 +141,11 @@ html, body{
  	outline:none;
 	border-radius: 6px;
 }
-/*---------------fin*/
+
+.inputFormFail{
+    border: solid red 1px;
+}
+/*---------------fin login*/
 
 /*--------------------------------------estos es el css del div register y todo lo que hay dentro*/
  /*Buttons*/
@@ -189,7 +193,7 @@ html, body{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 110px;
+	height: 115px;
 	margin: 0px;
 	text-align: center;
 	padding-top: 20px;
@@ -203,11 +207,137 @@ html, body{
 .divFootRegister{
 	margin-top: 40px;
 }
-/*inptu*/
-
-/*---------------fin*/
 
 
+/*---------------fin registe*/
 
+/*--------------------------------------estos es el css del div Home y todo lo que hay dentro*/
+ /*Buttons*/
+ /*-------------------------estos botones son generales para las vistas de home reservas y mensajes  */
+.btnOption{
+ 	background:none;
+ 	outline:none;
+ 	border: none;
+ 	margin-top: 5%;
+ 	margin-left: 3%;
+ 	margin-right: 3%;
+ 	width: 45px;
+ 	height: 45px;
+ }
 
+#btnHomeOpNet{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 35px;
+ 	height: 20px;
+ 	margin-left: 10%;
+}
+#btnHomeProfile{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 40px;
+ 	height: 35px;
+ 	margin-right: 10%;
+}
+/*-------------------------------------fin botones genreales*/
 
+.btnFacilities{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 130px;
+ 	height: 26px;
+}
+ /*div*/
+
+#home{
+   background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+   height: 100%;
+   width: 100% ;
+   margin: 0px;
+   background-size: 100%;
+   text-align: center;
+}
+
+.titleHome{
+	margin-bottom: 10px;
+}
+.logoHome{
+	background-image: url(../img/app/registro/cabezote-registro-360x110px.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 115px;
+	margin: 0px;
+	text-align: center;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+#homeFooter{
+	background-image: url(../img/app/home-app/pie2-de-pagina-home-360x100px.png);
+	position:absolute;
+	left: 0px;
+	right: 0px;                  
+    bottom:0px;  
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 115px;
+	text-align: center;
+	padding-top: 20px;
+}
+.homeBody{
+	height: 333px;
+	overflow-y: scroll;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.card {
+    flex: 0 0 auto;
+    background:none;
+    margin-left:5px;
+    height: 160px;
+    width: 285px;
+}
+
+#textHome{
+	background-image: url(../img/app/home-app/fondo-texto-home-325x90px.png);
+	background-repeat: no-repeat;
+	width: 325px;
+	height: 90px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	 hyphens: auto;
+}
+
+#optionHome{}
+/*img*/
+.imgHome{
+	height: 160px;
+    width: 285px;
+    object-fit:cover;
+}
+/*---------------fin home*/
+
+/*--------------------------------------estos es el css del div reserve y todo lo que hay dentro*/
+ /*Buttons*/
+
+ /*div*/
+
+#reserve{
+   background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+   height: 100%;
+   width: 100% ;
+   margin: 0px;
+   background-size: 100%;
+   text-align: center;
+}
+
+/*---------------fin reserve*/

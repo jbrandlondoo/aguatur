@@ -4,9 +4,9 @@
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
 var reserve,editInformation,viewReserves;
-
-
 var dataRegister,dataLogin,dataUpdate;
+
+
 
 var app = {
     initilize:()=>{
@@ -27,6 +27,7 @@ var app = {
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 
+        $('#makeRegister').attr('disabled','disabled');
     },
 
     changeView:(idViewOld,idViewNew)=>{
@@ -36,11 +37,9 @@ var app = {
 
 };
 app.initilize();
-
-
-
-
+   
 // eventos que se disparan con el boton de submit jquery
+
 $('#formRegisterData').submit(function (e) {
     e.preventDefault();
     var arrayData = new Array();
@@ -48,8 +47,9 @@ $('#formRegisterData').submit(function (e) {
     data.forEach((item)=>{
         arrayData[item.name] = item.value;
     });
-    start();
-    putRegister(arrayData);
+    alert(arrayData["name"]);
+    //putRegister(arrayData);
+    app.changeView(register,panelRegisterLogin);
 });
 
 $('#formLoginData').submit(function (e) {
@@ -72,3 +72,12 @@ $('#registerData').submit(function (e) {
     dataUpdate = arrayData;
 });
 
+
+// arreglar
+
+
+function diaSemana(dia,mes,anio){
+    var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+    var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
+    console.log( "Dia de la semana : " + dias[dt.getUTCDay()]);    
+};
