@@ -47,8 +47,8 @@ $('#formRegisterData').submit(function (e) {
     data.forEach((item)=>{
         arrayData[item.name] = item.value;
     });
-    alert(arrayData["name"]);
-    //putRegister(arrayData);
+    
+    putRegister(arrayData);
     app.changeView(register,panelRegisterLogin);
 });
 
