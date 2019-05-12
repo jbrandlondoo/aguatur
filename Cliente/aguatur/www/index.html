@@ -1,103 +1,283 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <title>AguaTur</title>
     </head>
-    <body>
+    <body id="body">
+
+        <script type="text/javascript" src="js/resolucion.js"></script>
+
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
         <div id="panelRegisterLogin" class="show">
-            <input type="Button" value="INICIAR SESIÓN" id="initSesion" name="">
-            <input type="Button" value="REGISTRARME" id="registerRL" name="">
-            <p>¿Cuáles son los <a href="#">beneficios</a></p>
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredRL" name="">
+            <div id="logo">
+                <img src="img/app/inicio-app/logo-256px.png">
+            </div>
+            <div class="buttonInicio">
+                <button id="initSesion" class="buttonIMG210x50"><img src="img/app/inicio-app/iniciar-sesion-210x50px.png"></button>
+            </div>
+            <div class="buttonInicio">
+                <button id="registerRL" class="buttonIMG210x50"><img src="img/app/inicio-app/registrarme-210x50px.png"></button>
+            </div>
+                <p class="pbeneficios">¿Cuáles son los <a class="abeneficios" href="#"><b>beneficios?</b></a></p>
+            <div class="divInitNotRegisteredRL">
+                <button id="initNotRegisteredRL" class="buttonIMG91x15"><img src="img/app/inicio-app/sin-registro-91x15px.png"></button>
+            </div>
         </div>
     <!-- panel de login con los campos de ingreso de user y password, ademas de la posibilidad de restablecer password -->
         <div id="login" class="hidden">
+            <div id="logo">
+                <img src="img/app/inicio-app/logo-256px.png">
+            </div>
             <form id="formLoginData">
                 <div>
-                    <input type="text" placeholder="Email" name="name" required>
-                    <input type="password" placeholder="Contraseña" minlength="6" name="password" required>
+                    <div class="divLoginItem">
+                        <input type="text" class="inputForm" placeholder="Email" name="name" required>
+                    </div>
+                    <div class="divLoginItem"> 
+                        <input type="password" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
+                    </div>
                 </div>
-                <input type="submit" value="Entrar" name="">
+                <button type="submit" class="loginBTN">
+                    <img src="img/app/iniciar-sesion/ingresar-210x50px.png">
+                </button>
             </form>
-           
-            <p>Restablecer <a href="#">contraseña</a></p>
-            <input type="Button" value="REGISTRARME" id="registerL" name="">
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredL" name="">
+            <div>    
+                <button class="restartPass">
+                        <img src="img/app/iniciar-sesion/restablecer-150x10px.png">
+                </button>
+            </div>
+            <div class="divReturnL">    
+                <button id="returnL">
+                    <img src="img/app/iniciar-sesion/volver-50x20px.png">
+                </button>
+            </div>
         </div>
     <!-- panel para el resgistro de usuarios -->
         <div id="register" class="hidden">
+            <div class="logoRegister">
+                <img src="img/app/registro/logo-128px.png">
+            </div>
             <form id="formRegisterData">
-                <div>
-                    <input type="text" placeholder="Nombre Y Apellido" name="name" required id="regName">
+                <div class="divRegisterItem">
+                    <input type="text" class="inputForm" placeholder="Nombre Y Apellido" name="name" required id="regName" oninput="validate(this)" >
                 </div>
-                <div>
-                    <input type="email" placeholder="Correo Electrónico" name="email" required id="regEmail">
+                <div class="divRegisterItem">
+                    <input type="email" class="inputForm" placeholder="Correo Electrónico" name="email" required id="regEmail" oninput="validate(this)">
                 </div>
-                <div>
-                    <input type="password" minlength="6" placeholder="Contraseña" name="password" required id="regPass">
-                    <input type="password" minlength="6" placeholder="Confirmar Contraseña" name="confirm_password" required id="confSpace">
+                <div class="divRegisterItem">
+                    <input type="password" class="inputForm" minlength="6" placeholder="Contraseña" name="password" required id="regPass" oninput="validate(this)">
                 </div>
-                <input type="submit" value="Registrarme" name="" id="makeRegister">
+                <div class="divRegisterItem">
+                    <input type="password" class="inputForm" placeholder="Confirmar Contraseña" name="confirm_password" required id="confSpace" oninput="validatePass(this)">
+                </div>   
+                    <button type="submit" id="makeRegister">
+                        <img src="img/app/registro/registrarme-210x50px.png">
+                    </button>
             </form>
-            <input type="Button" value="Cancelar" id="cancelRegister" name="">
-
-            <p>¿Cuáles son los <a href="#">beneficios</a></p>
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
+            <button id="cancelRegister">
+                <img src="img/app/registro/cancelar-210x50px.png">
+            </button>
+            <div class="divFootRegister">
+                <button id="showB">
+                    <img src="img/app/registro/beneficios-117x10px.png"> 
+                </button>
+                <p>   </p>
+                <button id="initNotRegisteredR">
+                    <img src="img/app/registro/sin-registro-91x15px.png">
+                </button>
+            </div>
         </div>
     <!-- campo para fotos e información -->
         <div id="home" class="hidden">
-            
+            <div id="homeheader">
+                <div class="logoHome">
+                    <button id="btnHomeProfile">
+                        <img src="img/app/home-app/icon-perfil-40x35px.png">
+                    </button>
+                    <img src="img/app/registro/logo-128px.png">
+                    <button id="btnHomeOpNet">
+                        <img src="img/app/home-app/icon-opciones-35x20px.png">
+                    </button>
+                </div>
+                <div class="titleHome">
+                    <img src="img/app/home-app/titulo-home-290x48px.png">
+                </div>
+            </div>
+            <div id="homeBody" class="homeBody">
+                <div class="scrolling-wrapper cardHome">
+                  <div class="card"><img class="imgHome" src="img/app/home-app/img-3-285x160px.png"></div>
+                  <div class="card"><img class="imgHome" src="img/app/home-app/img-2-285x160px.png"></div>
+                  <div class="card"><img class="imgHome" src="img/app/home-app/img-1-285x160px.png"></div>
+                </div>
+                <div id="textHome" class="cardHome">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        </p>
+                </div>
+                <div id="optionHome" class="cardHome">
+                    <table>
+                        <tr>
+                            <th>
+                                <img src="img/app/home-app/nuestras-instalaciones-iconos/nuestras-instalaciones-170x40px.png">
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/restaurante-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/bar-discoteca-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/bar-humedo-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/zona-vip-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/ajedrez-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/hamacas-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/juegos-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/parqueadero-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/auditorio-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/piscinas-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/tobogan-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/deck-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/turco-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/jacuzzi-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/parque-acuatico-130x26px.png">
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btnFacilities">
+                                    <img src="img/app/home-app/nuestras-instalaciones-iconos/juegos-infantiles-130x26px.png">
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>               
+            </div>
+            <div id="homeFooter">
+                <button class="btnOption">
+                    <img src="img/app/home-app/icon-home-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-mensaje-45x45px.png">
+                </button>
+                <button class="btnOption" onclick="app.changeView(home,reserve)">
+                    <img src="img/app/home-app/icon-reservas-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-reservas-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-noticias-45x45px.png">
+                </button>
+            </div>
         </div>
     <!-- realizacion de la reserva -->
         <div id="reserve" class="hidden">
-            
+             <div id="homeheader">
+                <div class="logoHome">
+                    <button id="btnHomeProfile">
+                        <img src="img/app/home-app/icon-perfil-40x35px.png">
+                    </button>
+                    <img src="img/app/registro/logo-128px.png">
+                    <button id="btnHomeOpNet">
+                        <img src="img/app/home-app/icon-opciones-35x20px.png">
+                    </button>
+                </div>
+            </div>
+            <div id="homeBody" class="homeBody">
+              <input type="date" name="">
+            </div>
+            <div id="homeFooter">
+                <button class="btnOption">
+                    <img src="img/app/home-app/icon-home-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-mensaje-45x45px.png">
+                </button>
+                <button class="btnOption">
+                    <img src="img/app/home-app/icon-reservas-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-reservas-45x45px.png">
+                </button>
+                 <button class="btnOption">
+                    <img src="img/app/home-app/icon-noticias-45x45px.png">
+                </button>
+            </div>
         </div>
     <!-- campos para editar información -->
-        <div id="editInformation" class="hidden">
-            <form id="formUpdateData">
-                <div>
-                    <input type="text" placeholder="Nombre Y Apellido" name="">
-                </div>
-                <div>
-                    <select>
-                        <option>CC</option>
-                        <option>TP</option>
-                        <option>CE</option>
-                    </select>
-                    <input type="Number" placeholder="N° de identificación" name="">
-                </div>
-                <div>
-                    <input type="Number" placeholder="Número Celular" name="">
-                </div>
-                <div>
-                    <select>
-                        <option>F</option>
-                        <option>M</option>
-                        <option>O</option>
-                    </select>
-                     <input type="datetime-local" name="bdaytime">
-                </div>
-                <div>
-                    <input type="email" placeholder="Correo Electrónico" name="">
-                </div>
-                 <div>
-                    <input type="password" minlength="6" placeholder="Contraseña" id="password" required>
-                    <input type="password" minlength="6" placeholder="Confirmar Contraseña" id="confirm_password" required>
-                </div>
-
-                <input type="submit" value="Guardar" name="">
-            </form>
-            <input type="Button" value="Cancelar" id="cancelRegister" name="">
-
-            <p>¿Cuáles son los <a href="#">beneficios</a></p>
-            <input type="Button" value="INICIAR SIN REGISTRO" id="initNotRegisteredR" name="">
-        </div>
     <!-- campo para ver reservas -->
         <div id="viewReserves" class="hidden">
             
@@ -107,6 +287,7 @@
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
         <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/validation.js"></script>
         <script type="text/javascript" src="js/databaseController.js"></script>
         <script type="text/javascript" src="js/sessionController.js"></script>
     </body>

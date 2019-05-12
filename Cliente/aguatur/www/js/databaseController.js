@@ -8,7 +8,6 @@ function start(){
 config = databaseConfig();
 }
 
-
 function databaseConfig(){
   var config = {
     apiKey: "AIzaSyCtpcRBqOevLcUyurpiLY4hAXS4tgkZc98",
