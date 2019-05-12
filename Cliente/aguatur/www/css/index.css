@@ -56,6 +56,8 @@ html:-moz-full-screen{
    text-align: center;
 }
 #logo{
+	position: relative;
+	top: -1px;
 	background-image: url(../img/app/inicio-app/cabezote-inicio-360x260px.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -263,8 +265,11 @@ html:-moz-full-screen{
 
 .titleHome{
 	margin-bottom: 10px;
+	border: none;
 }
 .logoHome{
+	position: relative;
+	top: -1px;
 	background-image: url(../img/app/registro/cabezote-registro-360x110px.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -302,7 +307,9 @@ html:-moz-full-screen{
 .card {
     flex: 0 0 auto;
     background:none;
-    margin-left:5px;
+	margin-left:5px;
+	background-color: rgba(0,0,0,0) !important;
+	border: 0px !important;
     height: 160px;
     width: 285px;
 }

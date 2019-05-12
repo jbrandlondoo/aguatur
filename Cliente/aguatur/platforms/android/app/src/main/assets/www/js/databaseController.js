@@ -5,7 +5,10 @@ var txtName, txtEmailAd, txtPass, txtVerPass;
 window.onload = start;
 
 function start(){
-config = databaseConfig();
+  //configuración base de datos
+  config = databaseConfig();
+  //agregación de elementos al home
+  getHomeContent();
 }
 
 function putRegister(dataRegister){
@@ -22,6 +25,23 @@ function putRegister(dataRegister){
     .catch(function(error){
       console.error("Error escribiendo el documento: ",error)
     });
+}
+function getHomeContent(){
+  var db = firebase.firestore();
+ 
+  db.collection("ImagenesHome")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          
+          setHomeSlides(doc.data().URL);
+            
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+
 }
 
 

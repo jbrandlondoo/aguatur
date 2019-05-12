@@ -302,7 +302,8 @@ html:-moz-full-screen{
 .card {
     flex: 0 0 auto;
     background:none;
-    margin-left:5px;
+	margin-left:5px;
+	background-color: rgba(0,0,0,0) !important;
     height: 160px;
     width: 285px;
 }

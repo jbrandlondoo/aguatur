@@ -9,7 +9,7 @@ var dataRegister,dataLogin,dataUpdate;
 
 
 var app = {
-    initilize:()=>{
+    initilize:()=>{                
         // asignacion de variables
         //div padres
         panelRegisterLogin = document.getElementById("panelRegisterLogin");
