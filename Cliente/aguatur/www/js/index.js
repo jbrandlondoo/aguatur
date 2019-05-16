@@ -28,6 +28,7 @@ var app = {
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 
         $('#makeRegister').attr('disabled','disabled');
+        // $('#modalProfile').modal('show');
     },
 
     changeView:(idViewOld,idViewNew)=>{
