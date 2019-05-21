@@ -5,15 +5,16 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
         <title>AguaTur</title>
     </head>
     <body id="body">
-
-        <script type="text/javascript" src="js/resolucion.js"></script>
-
-    <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
+        <script type="text/javascript" src="js/resolucion.js"></script> 
+        <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
         <div id="panelRegisterLogin" class="show">
             <div id="logo">
                 <img src="img/app/inicio-app/logo-256px.png">
@@ -37,7 +38,7 @@
             <form id="formLoginData">
                 <div>
                     <div class="divLoginItem">
-                        <input type="text" class="inputForm" placeholder="Email" name="name" required>
+                        <input type="text" class="inputForm" placeholder="Email" name="email" required>
                     </div>
                     <div class="divLoginItem"> 
                         <input type="password" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
@@ -120,7 +121,7 @@
                 <div id="optionHome" class="cardHome">
                     <table>
                         <tr>
-                            <th>
+                            <th class="ourFacilities">
                                 <img src="img/app/home-app/nuestras-instalaciones-iconos/nuestras-instalaciones-170x40px.png">
                             </th>
                         </tr>
@@ -243,19 +244,67 @@
         </div>
     <!-- realizacion de la reserva -->
         <div id="reserve" class="hidden">
-             <div id="homeheader">
+            <div id="homeheader">
                 <div class="logoHome">
-                    <button id="btnHomeProfile">
+                    <button id="btnHomeProfile" data-toggle="modal" data-target="#modalProfile">
                         <img src="img/app/home-app/icon-perfil-40x35px.png">
                     </button>
                     <img src="img/app/registro/logo-128px.png">
-                    <button id="btnHomeOpNet">
+                    <button id="btnHomeOpNet" data-toggle="modal" data-target="#modalOption">
                         <img src="img/app/home-app/icon-opciones-35x20px.png">
                     </button>
                 </div>
+                <div>
+                    
+                </div>
             </div>
             <div id="homeBody" class="homeBody">
-              <input type="date" name="">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Fecha </label>
+                        </td>
+                        <td> 
+                            <div>
+                                <label>Desde :</label>
+                                <input type="date" id="dateUp" name="" >   
+                            </div>
+                            <div>
+                                <label>Hasta: </label>
+                                <input type="date" id="dateOut" name="">   
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Personas </label>
+                        </td>
+                        <td>
+                            <select id="selectAdult">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <label>Adultos </label>
+                        </td>
+                        <td>
+                            <select id="selectChildren">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <label>Niños</label>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div id="homeFooter">
                 <button class="btnOption">
@@ -275,20 +324,70 @@
                 </button>
             </div>
         </div>
-    <!-- campos para editar información -->
+    <!-- campo para ver resumen -->
+        <div id="resume">
+            
+        </div>
+    <!-- campo para ver mensajes -->
+        <div id="message">
+            
+        </div>    
+
     <!-- campo para ver reservas -->
         <div id="viewReserves" class="hidden">
             
         </div>
 
+
+    <!-- ventanas modal -->
+        <div class="modal fade" id="modalProfile">
+            <div>
+                
+            </div>
+
+
+        </div>
+
+        <div id="modalOption" class="modal">
+            <div id="optionsBodyModal">
+                <div class="logoHome">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <img src="img/app/registro/logo-128px.png">
+                        <button id="btnModalOptionExit" data-dismiss="modal" onclick="alert('Modal')">
+                            <img src="img/app/menu-opciones/salir-20x20px.png">
+                        </button>
+                </div>
+                <button id="btnFacebook">
+                    <img src="img/app/menu-opciones/facebook-205x35px.png">
+                </button>
+                <button id="btnInstagram">
+                    <img src="img/app/menu-opciones/instagram-205x35px.png">
+                </button>
+                <button id="btnCompras">
+                    <img src="img/app/menu-opciones/mis-compras-205x35px.png">
+                </button>
+
+                <div id="divModalIdentification">
+                    <div>
+                        <label>Identificación</label>  
+                    </div>
+                    <img src="img/app/menu-opciones/codigo-qr-120x120px.png">
+                </div>
+            </div>
+        </div>
+        
+
+    <!-- fin ventanas modal -->
+
+
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-        <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
         <script type="text/javascript" src="js/databaseController.js"></script>
         <script type="text/javascript" src="js/sessionController.js"></script>
         <script type="text/javascript" src="js/configureDB.js"></script>
         <script type="text/javascript" src="js/elementController.js"></script>
+
     </body>
 </html>

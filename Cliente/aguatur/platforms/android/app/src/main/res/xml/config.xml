@@ -4,7 +4,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>HelloCordova</name>
+    <name>AguaTur</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -22,4 +22,5 @@
     <icon src="www/img/app/icono_app/icono-64px.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="orientation" value="portrait" />
 </widget>

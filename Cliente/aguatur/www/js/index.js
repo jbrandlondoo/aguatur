@@ -20,6 +20,10 @@ var app = {
         editInformation = document.getElementById("editInformation");
         viewReserves = document.getElementById("viewReserves");
         //asignacion de eventos
+        if(localStorage.getItem("sesion")){
+            app.changeView(panelRegisterLogin,home);
+        }
+
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
         document.getElementById("initNotRegisteredRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,home)});
@@ -84,3 +88,16 @@ function diaSemana(dia,mes,anio){
     var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
     console.log( "Dia de la semana : " + dias[dt.getUTCDay()]);    
 };
+function edit(id){
+    id.parentElement.parentElement.children[1].children[0].readOnly=false;
+    id.parentElement.children[1].className = "show";
+    id.className = "hidden";
+}
+
+function save(id){
+    id.parentElement.parentElement.children[1].children[0].readOnly=true;
+    id.parentElement.children[0].className = "show";
+    id.className = "hidden";
+    var value = id.parentElement.parentElement.children[1].children[0].value;
+    console.log(value);
+}

@@ -20,14 +20,20 @@ var app = {
         editInformation = document.getElementById("editInformation");
         viewReserves = document.getElementById("viewReserves");
         //asignacion de eventos
+        if(localStorage.getItem("sesion")){
+            app.changeView(panelRegisterLogin,home);
+        }
+
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
         document.getElementById("initNotRegisteredRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,home)});
         document.getElementById("returnL").addEventListener("click",()=>{app.changeView(login,panelRegisterLogin)});
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
+        document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
 
         $('#makeRegister').attr('disabled','disabled');
+        // $('#modalProfile').modal('show');
     },
 
     changeView:(idViewOld,idViewNew)=>{
@@ -59,7 +65,8 @@ $('#formLoginData').submit(function (e) {
     data.forEach((item)=>{
         arrayData[item.name] = item.value;
     });
-    dataLogin = arrayData;
+    console.log(arrayData["email"]+arrayData["password"]);
+    findAccount(arrayData["email"],arrayData["password"]);
 });
 
 $('#registerData').submit(function (e) {
