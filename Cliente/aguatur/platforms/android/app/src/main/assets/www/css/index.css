@@ -12,6 +12,13 @@ body{
 	width: 100%;
 	position: fixed; 
 	overflow: hidden;
+	font-family: sans-serif;
+
+}
+
+label{
+	/*font-family: sans-serif;*/
+	color: white;
 }
 
  .hidden{
@@ -20,6 +27,7 @@ body{
  .show{
     display: block;
  }
+
 
 /*--------------------------------------estos es el css del div panelRegisterLogin y todo lo que hay dentro*/
  /*Buttons*/
@@ -298,7 +306,7 @@ body{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
+	height: 14%;
 	text-align: center;
 	padding-top: 20px;
 }
@@ -379,30 +387,62 @@ body{
    text-align: center;
 }
 
+#imgProfile{
+	height: 151px;
+    width: 122px;
+    border-radius: 10px;
+    margin: auto;
+    border: solid 1px blue;
+}
+
+/*table*/
+.tableProfileEdit{
+	margin-left: 10px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+/*input*/
+.inputEditProfile{
+	width: 146px;
+	border: none;
+	outline:none;
+}
+
 /*---------------fin modalProfile*/
 
 /*--------------------------------------estos es el css del div de modal option y todo lo que hay dentro*/
 #modalOption{
-	/*background-color:rgba(1, 1, 1, 0.15);
-   height: 100%;
+	background: url(../img/app/menu-opciones/fondo-360x520px.png) no-repeat;
+	height: 100%;
    width: 100% ;
-   margin: 0px;*/
+   margin: 0px;
+   margin-top: 0px;
+   top: 0px;
+   background-size: 100%;
+   text-align: center;
 }
 
 #divModalIdentification{
-	position: absolute;
-    top: 46%;
-    left: 42%;
+	margin-top: 20px;
 }
 
-#optionsBodyModal{
-	background: url(../img/app/menu-opciones/fondo-360x520px.png) no-repeat fixed;
-	margin: 0px;
-	height: 520px;
-   	width: 360px;
-	background-size: 100%;
-	text-align: center;
+.optionBodyModal{
+    width: 231px;
+    height: 350px;
+    margin-left: 20%;
 }
+
+.titleOptionModal{
+	background: url("../img/app/menu-opciones/titulo-165x30px.png") no-repeat;
+	width: 165px;
+	height: 30px;
+	background-size: 100%;
+	margin-bottom: 15px;
+	float: right;
+	padding-top: 3px;
+}
+
 /*button*/
 #btnFacebook{
 	background:none;
@@ -410,20 +450,18 @@ body{
  	border: none;
  	width: 205px;
  	height: 35px;
- 	position: absolute;
-    top: 23%;
-    left: 2%;
+ 	margin-bottom: 5px;
 }
 
 #btnInstagram{
-		background:none;
+	background:none;
  	outline:none;
  	border: none;
  	width: 205px;
  	height: 35px;
- 	position: absolute;
-    top: 29%;
-    left: 2%;
+ 	margin-bottom: 5px;
+
+    
 }
 #btnCompras{
 	background:none;
@@ -431,9 +469,8 @@ body{
  	border: none;
  	width: 205px;
  	height: 35px;
- 	position: absolute;
-    top: 35%;
-    left: 2%;
+ 	margin-bottom: 5px;
+
 }
 
 #btnModalOptionExit{
@@ -442,6 +479,76 @@ body{
  	border: none;
  	width: 20px;
  	height: 20px;
+ 	position: absolute;
+ 	left: 20px;
+}
+
+/*label*/
+#titleOptionModalLabel{
+	font-family: sans-serif;
+	color: white;
 }
 /*---------------fin modalOption*/
 
+.divMessage{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
+	background-size: 100%;
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+	margin-top: 0px;
+	color: #EBEBEA;
+}
+.scrollingMessage{
+	height: 70%;
+	width: 100%;
+    overflow-y: scroll;
+    position: absolute;
+}
+
+#headMessageList{
+	font-size: 11px;
+}
+#subjectMesageList{
+	font: oblique bold 120% cursive;
+	font-size: 15px;
+	text-align: left;
+}
+#messageList{
+	font: condensed;
+	font-size: 13px;
+	text-align: left;
+	line-height : 100%;
+}
+
+/*viewReservas*/
+.scrollingReservesList{
+	height: 70%;
+	width: 100%;
+    overflow-y: scroll;
+    position: absolute;
+}
+.divReserves{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
+	background-size: 100%;
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+	margin-top: 0px;
+	color: #EBEBEA;
+}
+
+#headReserves{
+	font-size: 11px;
+}
+#titleReserve{
+	font: oblique bold 120% cursive;
+	font-size: 15px;
+	text-align: left;
+}
+
+#reserve{
+	font: condensed;
+	font-size: 13px;
+	text-align: left;
+	line-height : 100%;
+	width: 100%;
+}

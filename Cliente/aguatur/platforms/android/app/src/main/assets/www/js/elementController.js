@@ -15,3 +15,4 @@ function setEAndCName(element, className){
     e.className=className;
     return e;
 }
+

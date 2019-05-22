@@ -3,8 +3,11 @@
 
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
-var reserve,editInformation,viewReserves;
+var reserveBody,homeBody;
 var dataRegister,dataLogin,dataUpdate;
+var resumeBody,messageBody,viewReservesBody;
+
+var currentView;
 
 
 
@@ -16,9 +19,12 @@ var app = {
         login = document.getElementById("login");
         register = document.getElementById("register");
         home = document.getElementById("home");
-        reserve = document.getElementById("reserve");
-        editInformation = document.getElementById("editInformation");
-        viewReserves = document.getElementById("viewReserves");
+        homeBody = document.getElementById("homeBody");
+        reserveBody = document.getElementById("reserveBody");
+        resumeBody = document.getElementById("resumeBody");
+        messageBody = document.getElementById("messageBody");
+        viewReservesBody = document.getElementById("viewReservesBody");
+        currentView = homeBody;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
@@ -39,8 +45,22 @@ var app = {
     changeView:(idViewOld,idViewNew)=>{
         idViewOld.className = "hidden";
         idViewNew.className = "show";
-    }
+    },
 
+    changeViewHome:(idViewNew)=>{
+        // quitar commentario
+        // if(!localStorage.getItem("sesion")) {
+        //     if (!(homeBody == idViewNew)){
+        //         app.changeView(home,login);
+        //         return;
+        //     }  
+        // }
+        if (!(idViewNew == currentView)) {
+            currentView.className = "hidden";
+            idViewNew.className = "show";
+            currentView = idViewNew;
+        }
+    }
 };
 app.initilize();
    
@@ -88,3 +108,18 @@ function diaSemana(dia,mes,anio){
     var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
     console.log( "Dia de la semana : " + dias[dt.getUTCDay()]);    
 };
+var tem;
+function edit(id){
+tem = id;
+    id.parentElement.parentElement.children[0].children[0].children[1].readOnly=false;
+    id.className = "hidden";
+    id.parentElement.children[1].className = "show";
+}
+
+function save(id){
+    id.parentElement.parentElement.children[0].children[0].children[1].readOnly=true;
+    id.className = "hidden";
+    id.parentElement.children[0].className = "show";
+    var value = id.parentElement.parentElement.children[0].children[0].children[1].value;
+    console.log(value);
+}

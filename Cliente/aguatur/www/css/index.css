@@ -20,6 +20,7 @@ label{
 	/*font-family: sans-serif;*/
 	color: white;
 }
+
  .hidden{
     display: none;
  }
@@ -305,7 +306,7 @@ label{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
+	height: 14%;
 	text-align: center;
 	padding-top: 20px;
 }
@@ -394,6 +395,20 @@ label{
     border: solid 1px blue;
 }
 
+/*table*/
+.tableProfileEdit{
+	margin-left: 10px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+/*input*/
+.inputEditProfile{
+	width: 146px;
+	border: none;
+	outline:none;
+}
+
 /*---------------fin modalProfile*/
 
 /*--------------------------------------estos es el css del div de modal option y todo lo que hay dentro*/
@@ -475,3 +490,65 @@ label{
 }
 /*---------------fin modalOption*/
 
+.divMessage{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
+	background-size: 100%;
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+	margin-top: 0px;
+	color: #EBEBEA;
+}
+.scrollingMessage{
+	height: 70%;
+	width: 100%;
+    overflow-y: scroll;
+    position: absolute;
+}
+
+#headMessageList{
+	font-size: 11px;
+}
+#subjectMesageList{
+	font: oblique bold 120% cursive;
+	font-size: 15px;
+	text-align: left;
+}
+#messageList{
+	font: condensed;
+	font-size: 13px;
+	text-align: left;
+	line-height : 100%;
+}
+
+/*viewReservas*/
+.scrollingReservesList{
+	height: 70%;
+	width: 100%;
+    overflow-y: scroll;
+    position: absolute;
+}
+.divReserves{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
+	background-size: 100%;
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+	margin-top: 0px;
+	color: #EBEBEA;
+}
+
+#headReserves{
+	font-size: 11px;
+}
+#titleReserve{
+	font: oblique bold 120% cursive;
+	font-size: 15px;
+	text-align: left;
+}
+
+#reserve{
+	font: condensed;
+	font-size: 13px;
+	text-align: left;
+	line-height : 100%;
+	width: 100%;
+}
