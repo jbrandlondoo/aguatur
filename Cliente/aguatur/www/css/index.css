@@ -29,6 +29,22 @@ label{
  }
 
 
+/*-------------------div carga*/
+
+#loadingDiv{
+	background-color: white;
+	height: 100%;
+   	width: 100%;
+   align-items: center;
+   z-index: 1;
+}
+
+#imgLogo{
+	display:block;
+	margin:auto;
+	margin-top: 50%;
+}
+
 /*--------------------------------------estos es el css del div panelRegisterLogin y todo lo que hay dentro*/
  /*Buttons*/
  .buttonIMG210x50{
@@ -297,6 +313,9 @@ label{
 	margin-bottom: 20px;
 }
 
+#btnFooter{
+	margin-bottom: 4%;
+}
 #homeFooter{
 	background-image: url(../img/app/home-app/pie2-de-pagina-home-360x100px.png);
 	position:absolute;
@@ -490,6 +509,47 @@ label{
 }
 /*---------------fin modalOption*/
 
+
+
+/*----------------modal mesage*/
+
+#messageBodyModal{
+
+}
+#modalMessage{
+	background: url(../img/app/menu-opciones/fondo-360x520px.png) no-repeat;
+	height: 100%;
+   width: 100% ;
+   margin: 0px;
+   margin-top: 0px;
+   top: 0px;
+   background-size: 100%;
+   text-align: center;
+}
+
+#submitMessage{
+	background-color: #117abf;
+    border: none;
+    border-radius: 5px;
+    width: 107px;
+    margin-top: 10px;
+}
+#messageSubjet{
+	border: none;
+    background: rgb(224, 224, 224);
+    border-radius: 6px;
+    width: 215px;
+    margin-bottom: 10px;
+}
+
+#message{
+	border: none;
+    background: rgb(224, 224, 224);
+    border-radius: 6px;
+    width: 215px;
+    height: 163px;
+}
+/*---------------fin modal message*/
 .divMessage{
 	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
 	background-size: 100%;
