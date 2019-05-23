@@ -9,6 +9,7 @@ function start(){
   config = databaseConfig();
   //agregación de elementos al home
   getHomeContent();
+  //document.getElementById("loadingDiv").className = "hidden";
 }
 
 function putRegister(dataRegister){
@@ -28,20 +29,17 @@ function putRegister(dataRegister){
 }
 function getHomeContent(){
   var db = firebase.firestore();
- 
   db.collection("ImagenesHome")
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           
           setHomeSlides(doc.data().URL);
-            
         });
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
-
 }
 
 function getMessagePageContent(userEmail){

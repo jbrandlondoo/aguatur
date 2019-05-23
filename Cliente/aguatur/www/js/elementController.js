@@ -1,3 +1,4 @@
+
 function setHomeSlides(URL){
 
     let p = setEAndCName("div", "card");

@@ -13,6 +13,11 @@
     </head>
     <body id="body">
         <script type="text/javascript" src="js/resolucion.js"></script> 
+
+    <!-- ------------------------------panel de carga -->
+    <div id="loadingDiv" class="hidden">
+        <img id="imgLogo" src="img/app/logo-app/logo-256px.png">
+    </div>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
         <div id="panelRegisterLogin" class="show">
             <div id="logo">
@@ -291,6 +296,7 @@
             </div>
 
             <div id="messageBody" class="hidden">
+                <button id="btnMessageModal" data-toggle="modal" data-target="#modalMessage">+</button>
                 <div class="scrollingMessage" id="messages">
                     <div class="divMessage">
                         <div id="headMessageList">
@@ -347,6 +353,11 @@
                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>    
                     </div>
+                    <!-- etse no se borra -->
+                    <div class="divMessage">
+                        <br>
+                        <br>
+                    </div>
                 </div>
             </div> 
 
@@ -363,25 +374,33 @@
                             <p>Lorem .</p>
                         </div> 
                     </div>
+
+                    <!-- este no se borra -->
+                     <div class="divReserves">
+                        <br>
+                        <br>
+                    </div>
                 </div>
             </div>
 
             <div id="homeFooter">
-                <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                    <img src="img/app/home-app/icon-home-45x45px.png">
-                </button>
-                 <button class="btnOption" onclick="app.changeViewHome(messageBody)">
-                    <img src="img/app/home-app/icon-mensaje-45x45px.png">
-                </button>
-                <button class="btnOption" onclick="app.changeViewHome(reserveBody)">
-                    <img src="img/app/home-app/icon-reservas-45x45px.png">
-                </button>
-                 <button class="btnOption" onclick="app.changeViewHome(viewReservesBody)">
-                    <img src="img/app/home-app/icon-guardar-45x45px.png">
-                </button>
-                 <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                    <img src="img/app/home-app/icon-noticias-45x45px.png">
-                </button>
+                <div id="btnFooter">
+                    <button class="btnOption" onclick="app.changeViewHome(homeBody)">
+                        <img src="img/app/home-app/icon-home-45x45px.png">
+                    </button>
+                     <button class="btnOption" onclick="app.changeViewHome(messageBody)">
+                        <img src="img/app/home-app/icon-mensaje-45x45px.png">
+                    </button>
+                    <button class="btnOption" onclick="app.changeViewHome(reserveBody)">
+                        <img src="img/app/home-app/icon-reservas-45x45px.png">
+                    </button>
+                     <button class="btnOption" onclick="app.changeViewHome(viewReservesBody)">
+                        <img src="img/app/home-app/icon-guardar-45x45px.png">
+                    </button>
+                     <button class="btnOption" onclick="app.changeViewHome(homeBody)">
+                        <img src="img/app/home-app/icon-noticias-45x45px.png">
+                    </button>
+                </div>
             </div>
         </div>
     <!-- ventanas modal -->
@@ -478,6 +497,29 @@
                         </div>
                         <img src="img/app/menu-opciones/codigo-qr-120x120px.png">
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalMessage" class="modal">
+            <div id="messageBodyModal" class="float-md-right">
+                <div class="logoHome">
+                    <button id="btnModalOptionExit" data-dismiss="modal">
+                        <img src="img/app/menu-opciones/salir-20x20px.png">
+                    </button>
+                    <img src="img/app/registro/logo-128px.png">
+                </div>
+                <div class="titleOptionModal">
+                    <p id="titleOptionModalLabel">MENSAJES</p>
+                </div>
+                <div class="optionBodyModal">
+                    <div>
+                        <input type="text" id="messageSubjet" name="" placeholder="Asunto" max="50">
+                    </div>
+                    <div>
+                        <textarea id="message" placeholder="Mensaje" max="500"></textarea>
+                    </div>
+                    <button id="submitMessage"><label>Enviar</label></button>
                 </div>
             </div>
         </div>

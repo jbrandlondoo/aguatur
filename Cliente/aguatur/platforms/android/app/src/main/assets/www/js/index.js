@@ -48,13 +48,12 @@ var app = {
     },
 
     changeViewHome:(idViewNew)=>{
-        // quitar commentario
-        // if(!localStorage.getItem("sesion")) {
-        //     if (!(homeBody == idViewNew)){
-        //         app.changeView(home,login);
-        //         return;
-        //     }  
-        // }
+        if(!localStorage.getItem("sesion")) {
+            if (!(homeBody == idViewNew)){
+                app.changeView(home,login);
+                return;
+            }  
+        }
         if (!(idViewNew == currentView)) {
             currentView.className = "hidden";
             idViewNew.className = "show";
