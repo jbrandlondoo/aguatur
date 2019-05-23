@@ -310,11 +310,11 @@ label{
 	margin: 0px;
 	text-align: center;
 	padding-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 #btnFooter{
-	margin-bottom: 4%;
+	
 }
 #homeFooter{
 	background-image: url(../img/app/home-app/pie2-de-pagina-home-360x100px.png);
@@ -327,11 +327,13 @@ label{
 	width: 100%;
 	height: 14%;
 	text-align: center;
-	padding-top: 20px;
+	padding-top: 5px;
+	padding-bottom: 25px;
 }
 .homeBody{
-	height: 333px;
-	overflow-y: scroll;
+	height: 60%;
+    overflow-y: scroll;
+    position: absolute;
 }
 
 .scrolling-wrapper {
@@ -351,12 +353,15 @@ label{
 
 #textHome{
 	background-image: url(../img/app/home-app/fondo-texto-home-325x90px.png);
-	background-repeat: no-repeat;
-	width: 325px;
-	height: 90px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	 hyphens: auto;
+    background-repeat: no-repeat;
+    width: 325px;
+    height: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 11px;
+    line-height: 100%;
+    color: #114f7c;
+    font-size: 15px;
 }
 
 #optionHome{}
@@ -378,21 +383,41 @@ label{
  /*Buttons*/
 
  /*div*/
-
-#reserve{
-   background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
-   height: 100%;
-   width: 100% ;
-   margin: 0px;
-   background-size: 100%;
-   text-align: center;
+input[type=date]{
+	background:#114675;
+	color:white;
+	border:none;
+	border-radius:14px;
+}
+select{
+	color:white;
+	outline:none;
+	background:#114675;
+	border:none;
+	border-radius:5px;
 }
 
 /*input*/
 
 
 /*---------------fin reserve*/
+/*----------------reserve resumen*/
+#resumeBody{
+	width:100%;
+	height:65%;
+}
 
+#tableResumen{
+	margin: 10px 20px 10px 20px;
+	font-size: 15px;
+}
+
+input[type=checkbox]{
+ 	background:white;
+ 	width:20px;
+ 	height:20px;
+ }
+/*-----------------fin reserve resumen*/
 
 /*--------------------------------------estos es el css del div de modal Profile y todo lo que hay dentro*/
 #modalProfile{
@@ -549,6 +574,17 @@ label{
     width: 215px;
     height: 163px;
 }
+
+#btnMessageModal{
+	margin-left: 46%;
+    color: rgb(17, 122, 191);
+    font-size: 27px;
+    height: 39px;
+    width: 39px;
+    border-radius: 29px;
+    border: none;
+    background: rgb(245, 240, 240);
+}
 /*---------------fin modal message*/
 .divMessage{
 	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png);
@@ -569,7 +605,7 @@ label{
 	font-size: 11px;
 }
 #subjectMesageList{
-	font: oblique bold 120% cursive;
+	/*]font: oblique bold 120% cursive;*/
 	font-size: 15px;
 	text-align: left;
 }
@@ -598,11 +634,21 @@ label{
 
 #headReserves{
 	font-size: 11px;
+	margin-bottom: 4px;
 }
 #titleReserve{
-	font: oblique bold 120% cursive;
 	font-size: 15px;
 	text-align: left;
+}
+#headReserveInfo{
+	 float: left;
+}
+#headReserveEdit{
+    height: 20px;
+    width: 38px;
+    background: rgba(109, 107, 107, 0.62);
+    margin-left: 90%;
+    border-radius: 6px;
 }
 
 #reserve{
