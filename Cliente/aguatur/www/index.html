@@ -15,9 +15,9 @@
         <script type="text/javascript" src="js/resolucion.js"></script> 
 
     <!-- ------------------------------panel de carga -->
-    <div id="loadingDiv" class="hidden">
-        <img id="imgLogo" src="img/app/logo-app/logo-256px.png">
-    </div>
+        <div id="loadingDiv" class="hidden">
+            <img id="imgLogo" src="img/app/logo-app/logo-256px.png">
+        </div>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
         <div id="panelRegisterLogin" class="show">
             <div id="logo">
@@ -117,11 +117,14 @@
 
         <!-- estos div cambian segun el boton -->
             <div id="homeBody" class="show">
+                <div class="titleHome">
+                    <img src="img/app/home-app/titulo-home-290x48px.png">
+                </div>
                 <div class="homeBody">
                     <div class="scrolling-wrapper cardHome" id="slides">
                     </div>
                     <div id="textHome" class="cardHome">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            <p> <b> Lorem ipsum dolor</b><br>sit amet, consectetur adipisicing elit, sed do eiusmod
                             </p>
                     </div>
                     <div id="optionHome" class="cardHome">
@@ -228,6 +231,8 @@
                                 </td>
                             </tr>
                         </table>
+                        <br>
+                        <br>
                     </div>
                 </div>               
             </div>
@@ -293,55 +298,86 @@
             </div>
 
             <div id="resumeBody" class="hidden">
+                <table id="tableResumen"> 
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td><label>Plan romántico</label></td>
+                            <td>
+                                <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </td>
+                            <td><label>$150.000 por noche</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td><label>Almuerzo día de ingreso</label></td>
+                            <td>
+                                <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </td>
+                            <td><label>$15.000 por persona</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td><label>Decoración habitación</label></td>
+                            <td>
+                                <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </td>
+                            <td><label>$60.000 por noche</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td><label>Spa (1 hora)</label></td>
+                            <td>
+                                <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </td>
+                            <td><label>$80.000 por persona</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onclick="app.changeViewHome(homeBody)">Cancelar</button>
+                <button onclick="">Reservar</button>
             </div>
 
             <div id="messageBody" class="hidden">
+                <label><b>MENSAJES</b></label>
                 <button id="btnMessageModal" data-toggle="modal" data-target="#modalMessage">+</button>
-                <div class="scrollingMessage" id="messages">
-                    <div class="divMessage">
+                <div class="scrollingMessage">
+                     <div class="divMessage">
                         <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Enviado</label>
-                        </div>
-                        <div id="subjectMessageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem </p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
-                        </div>
-                        <div id="subjectMessageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
-                        </div>
-                        <div id="subjectMessageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
+                            <div id="headMessageInfoDate"><label>mar,5/21/19</label></div>
+                            <div id="headMessageInfoStatus"><label>Recibido</label></div>
                         </div>
                         <div id="subjectMessageList"><label>Este es un mensaje</label></div>
                         <div id="messageList">
@@ -354,10 +390,9 @@
                         </div>    
                     </div>
                     <!-- etse no se borra -->
-                    <div class="divMessage">
-                        <br>
-                        <br>
-                    </div>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div> 
 
@@ -365,9 +400,13 @@
                 <div class="scrollingReservesList">
                     <div class="divReserves">
                         <div id="headReserves">
-                            <label>mar,5/21/19</label>
-                            <label>Guardada</label>
-                            <a href="#"><label>Editar</label></a>
+                            <div id="headReserveInfo">
+                                <label>mar,5/21/19</label>
+                                <label>Guardada</label>
+                            </div>
+                            <div id="headReserveEdit">
+                                <a href="#"><label>Editar</label></a>
+                            </div>
                         </div>
                         <div id="titleReserve"><label>21/9/2019</label></div>
                         <div id="reserve">
@@ -376,10 +415,9 @@
                     </div>
 
                     <!-- este no se borra -->
-                     <div class="divReserves">
-                        <br>
-                        <br>
-                    </div>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
 
