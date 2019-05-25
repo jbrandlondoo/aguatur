@@ -16,6 +16,9 @@ body{
 
 }
 
+button:focus {
+	outline:none;
+}
 label{
 	/*font-family: sans-serif;*/
 	color: white;
@@ -277,6 +280,11 @@ label{
 }
 /*-------------------------------------fin botones genreales*/
 
+.adapterScroll{
+	width: 100%;
+	height: 8%;
+}
+
 .btnFacilities{
 	background:none;
  	outline:none;
@@ -306,7 +314,7 @@ label{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
+	height: 127px;
 	margin: 0px;
 	text-align: center;
 	padding-top: 20px;
@@ -331,7 +339,7 @@ label{
 	padding-bottom: 25px;
 }
 .homeBody{
-	height: 60%;
+	height: 66%;
     overflow-y: scroll;
     position: absolute;
 }
@@ -593,6 +601,7 @@ input[type=checkbox]{
 	padding: 10px 20px 10px 20px;
 	margin-top: 0px;
 	color: #EBEBEA;
+
 }
 .scrollingMessage{
 	height: 70%;
@@ -603,9 +612,10 @@ input[type=checkbox]{
 
 #headMessageList{
 	font-size: 11px;
+	margin-bottom: 4px;
 }
+
 #subjectMesageList{
-	/*]font: oblique bold 120% cursive;*/
 	font-size: 15px;
 	text-align: left;
 }
@@ -614,6 +624,18 @@ input[type=checkbox]{
 	font-size: 13px;
 	text-align: left;
 	line-height : 100%;
+}
+
+#headMessageInfoStatus{
+	height: 20px;
+    width: 82px;
+    background: rgba(109, 107, 107, 0.62);
+    border-radius: 6px;
+    margin-left: 74%;
+}
+
+#headMessageInfoDate{
+	float: left;
 }
 
 /*viewReservas*/

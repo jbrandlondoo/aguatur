@@ -42,6 +42,47 @@ function getHomeContent(){
     });
 }
 
+function getMessagePageContent(userEmail){
+  let destinatario, remitente, completo;
+
+  var array1 = ['a', 'b', 'c'];
+  var array2 = ['d', 'e', 'f'];
+  
+  console.log(array1.concat(array2));
+
+  remitente=getMessageData("Remitente",userEmail);
+  destinatario=getMessageData("Destinatario",userEmail);
+  
+  console.log(remitente.concat(destinatario));
+  completo = remitente.concat(destinatario);
+  console.log(completo)
+
+  
+ 
+}
+var ses, lel;
+function getMessageData(tipo,userEmail){
+
+  let list=[]  
+  let db = firebase.firestore();  
+ 
+  db.collection("Mensajes").where(tipo, "==", userEmail)
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          console.log(doc.data())
+          list.push(doc.data())
+                         
+       });
+    }).then(()=>{
+      console.log(list)
+      return list;
+    })    
+   .catch(function(error) {
+       console.log("Error getting documents: ", error);
+   });    
+
+}
 
 function findAccount(email, password){  
   var db = firebase.firestore();

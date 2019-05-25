@@ -233,6 +233,7 @@
                         </table>
                         <br>
                         <br>
+                        <br>
                     </div>
                 </div>               
             </div>
@@ -374,52 +375,12 @@
                 <label><b>MENSAJES</b></label>
                 <button id="btnMessageModal" data-toggle="modal" data-target="#modalMessage">+</button>
                 <div class="scrollingMessage">
-                    <div class="divMessage">
+                     <div class="divMessage">
                         <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Enviado</label>
+                            <div id="headMessageInfoDate"><label>mar,5/21/19</label></div>
+                            <div id="headMessageInfoStatus"><label>Recibido</label></div>
                         </div>
-                        <div id="subjectMesageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem </p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
-                        </div>
-                        <div id="subjectMesageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
-                        </div>
-                        <div id="subjectMesageList"><label>Este es un mensaje</label></div>
-                        <div id="messageList">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>    
-                    </div>
-                    <div class="divMessage">
-                        <div id="headMessageList">
-                            <label>mar,5/21/19</label>
-                            <label>Recibido</label>
-                        </div>
-                        <div id="subjectMesageList"><label>Este es un mensaje</label></div>
+                        <div id="subjectMessageList"><label>Este es un mensaje</label></div>
                         <div id="messageList">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -612,6 +573,8 @@
         <script type="text/javascript" src="js/sessionController.js"></script>
         <script type="text/javascript" src="js/configureDB.js"></script>
         <script type="text/javascript" src="js/elementController.js"></script>
+        <script type="text/javascript" src="js/libraryMethods.js"></script>
+        <script type="text/javascript" src="js/date.format.js"></script>
 
     </body>
 </html>

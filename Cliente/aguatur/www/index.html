@@ -42,10 +42,10 @@
             <form id="formLoginData">
                 <div>
                     <div class="divLoginItem">
-                        <input type="text" class="inputForm" placeholder="Email" name="email" required>
+                        <input type="text" id="inputLoginMail" class="inputForm" placeholder="Email" name="email" required>
                     </div>
                     <div class="divLoginItem"> 
-                        <input type="password" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
+                        <input type="password" id="inputLoginPass" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
                     </div>
                 </div>
                 <button type="submit" class="loginBTN">
@@ -120,14 +120,13 @@
                 <div class="titleHome">
                     <img src="img/app/home-app/titulo-home-290x48px.png">
                 </div>
-                <div class="homeBody">
-                    <div class="scrolling-wrapper cardHome" id="slides">
-                    </div>
-                    <div id="textHome" class="cardHome">
+                <section class="homeBody">
+                    <section class="scrolling-wrapper cardHome" id="slides"></section> 
+                    <section id="textHome" class="cardHome">
                             <p> <b> Lorem ipsum dolor</b><br>sit amet, consectetur adipisicing elit, sed do eiusmod
                             </p>
-                    </div>
-                    <div id="optionHome" class="cardHome">
+                    </section>
+                    <section id="optionHome" class="cardHome">
                         <table>
                             <tr>
                                 <th class="ourFacilities">
@@ -233,8 +232,9 @@
                         </table>
                         <br>
                         <br>
-                    </div>
-                </div>               
+                        <br>
+                    </section>
+                </section>               
             </div>
 
             <div id="reserveBody" class="hidden">
@@ -423,20 +423,25 @@
 
             <div id="homeFooter">
                 <div id="btnFooter">
-                    <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                        <img src="img/app/home-app/icon-home-45x45px.png">
+                    <button class="btnOption" onclick="app.changeViewHome(homeBody,this)">
+                        <img src="img/app/iconos-navegacion/home-45x45px.png" class="hidden">
+                        <img src="img/app/iconos-navegacion/home-click-45x45px.png" class="show">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(messageBody)">
-                        <img src="img/app/home-app/icon-mensaje-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(messageBody,this)">
+                        <img src="img/app/iconos-navegacion/mensajes-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/mensajes-click-45x45px.png" class="hidden">
                     </button>
-                    <button class="btnOption" onclick="app.changeViewHome(reserveBody)">
-                        <img src="img/app/home-app/icon-reservas-45x45px.png">
+                    <button class="btnOption" onclick="app.changeViewHome(reserveBody,this)">
+                        <img src="img/app/iconos-navegacion/reservas-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/reservas-click-45x45px.png" class="hidden">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(viewReservesBody)">
-                        <img src="img/app/home-app/icon-guardar-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(viewReservesBody,this)">
+                        <img src="img/app/iconos-navegacion/guardadas-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/guardadas-click-45x45px.png" class="hidden">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                        <img src="img/app/home-app/icon-noticias-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(homeBody,this)">
+                        <img src="img/app/iconos-navegacion/noticias-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/noticias-click-45x45px.png" class="hidden">
                     </button>
                 </div>
             </div>

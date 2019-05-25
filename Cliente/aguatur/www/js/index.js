@@ -10,7 +10,6 @@ var resumeBody,messageBody,viewReservesBody;
 var currentView;
 
 
-
 var app = {
     initilize:()=>{                
         // asignacion de variables
@@ -24,7 +23,10 @@ var app = {
         resumeBody = document.getElementById("resumeBody");
         messageBody = document.getElementById("messageBody");
         viewReservesBody = document.getElementById("viewReservesBody");
-        currentView = homeBody;
+        currentView = new Object();
+        currentView.view = homeBody;
+        currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
+        currentView.indexBtnsNav = 0;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
@@ -47,18 +49,27 @@ var app = {
         idViewNew.className = "show";
     },
 
-    changeViewHome:(idViewNew)=>{
+    changeViewHome:(idViewNew,idbutton)=>{
         if(!localStorage.getItem("sesion")) {
             if (!(homeBody == idViewNew)){
                 app.changeView(home,login);
                 return;
             }  
         }
-        if (!(idViewNew == currentView)) {
-            currentView.className = "hidden";
+        if (!(idViewNew == currentView.view)) {
+            currentView.view.className = "hidden";
             idViewNew.className = "show";
-            currentView = idViewNew;
+            app.changeViewHomeButton(idbutton);
+            currentView.view = idViewNew;
         }
+    },
+    changeViewHomeButton:(id)=>{
+        currentView.btnsNavFooter.children[1].className = "hidden";
+        currentView.btnsNavFooter.children[0].className = "show";
+        id.children[0].className = "hidden";
+        id.children[1].className = "show";
+        currentView.btnsNavFooter = id;
+
     }
 };
 app.initilize();
