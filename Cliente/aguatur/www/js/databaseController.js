@@ -29,13 +29,19 @@ function putRegister(dataRegister){
 //Función para obtener las imagenes del slide del home desde la BD
 function getHomeContent(){
   var db = firebase.firestore();
+  let flag;
   db.collection("ImagenesHome")
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-          
           setHomeSlides(doc.data().URL);
         });
+        flag = true;
+    })
+    .then(()=>{
+      if (flag) {
+      }else{
+      }
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -104,10 +110,11 @@ function findAccount(email, password){
         saveSession(data);
         app.changeView(login,home);
         console.log("Se encontró, sesión guardada en almacenamiento");
-
       }
       else{
-        console.log("No se encontró registro");  
+        console.log("No se encontró registro"); 
+        document.getElementById("inputLoginMail").className = "inputFormFail inputForm"; 
+        document.getElementById("inputLoginPass").className = "inputFormFail inputForm"; 
       }
     }
 

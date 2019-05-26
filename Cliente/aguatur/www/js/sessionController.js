@@ -1,5 +1,6 @@
 function saveSession(dataItem){
     localStorage.setItem("sesion",JSON.stringify(dataItem));
+    document.getElementById("btnHomeProfile").disabled = false;
 }
 function closeSession(){
     localStorage.clear();

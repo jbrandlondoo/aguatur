@@ -3,12 +3,12 @@
 
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
-var reserveBody,homeBody;
+var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
+var benefits;
 
 var currentView;
-
 
 
 var app = {
@@ -24,10 +24,16 @@ var app = {
         resumeBody = document.getElementById("resumeBody");
         messageBody = document.getElementById("messageBody");
         viewReservesBody = document.getElementById("viewReservesBody");
-        currentView = homeBody;
+        benefits = document.getElementById("benefits");
+        newsBody = document.getElementById("newsBody");
+        currentView = new Object();
+        currentView.view = homeBody;
+        currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
+        currentView.indexBtnsNav = 0;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
+            document.getElementById("btnHomeProfile").disabled = false;
         }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
@@ -37,8 +43,10 @@ var app = {
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
+        document.getElementById("returnPRL").addEventListener("click",()=>{app.changeView(benefits,panelRegisterLogin)});
 
         $('#makeRegister').attr('disabled','disabled');
+
         // $('#modalProfile').modal('show');
     },
 
@@ -47,18 +55,30 @@ var app = {
         idViewNew.className = "show";
     },
 
-    changeViewHome:(idViewNew)=>{
+    changeViewHome:(idViewNew,idbutton)=>{
         if(!localStorage.getItem("sesion")) {
             if (!(homeBody == idViewNew)){
                 app.changeView(home,login);
                 return;
             }  
         }
-        if (!(idViewNew == currentView)) {
-            currentView.className = "hidden";
+        if (!(idViewNew == currentView.view)) {
+            currentView.view.className = "hidden";
             idViewNew.className = "show";
-            currentView = idViewNew;
+            app.changeViewHomeButton(idbutton);
+            currentView.view = idViewNew;
         }
+    },
+    changeViewHomeButton:(id)=>{
+        currentView.btnsNavFooter.children[1].className = "hidden";
+        currentView.btnsNavFooter.children[0].className = "show";
+        id.children[0].className = "hidden";
+        id.children[1].className = "show";
+        currentView.btnsNavFooter = id;
+
+    },
+    viewBenefits:()=>{
+        app.changeView(panelRegisterLogin,benefits);
     }
 };
 app.initilize();

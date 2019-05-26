@@ -6,9 +6,10 @@ var panelRegisterLogin,login,register,home;
 var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
+var benefits;
+var dataReserve;
 
 var currentView;
-
 
 
 var app = {
@@ -24,11 +25,16 @@ var app = {
         resumeBody = document.getElementById("resumeBody");
         messageBody = document.getElementById("messageBody");
         viewReservesBody = document.getElementById("viewReservesBody");
+        benefits = document.getElementById("benefits");
         newsBody = document.getElementById("newsBody");
-        currentView = homeBody;
+        currentView = new Object();
+        currentView.view = homeBody;
+        currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
+        currentView.indexBtnsNav = 0;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
+            document.getElementById("btnHomeProfile").disabled = false;
         }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
@@ -38,8 +44,11 @@ var app = {
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
-
+        document.getElementById("returnPRL").addEventListener("click",()=>{app.changeView(benefits,panelRegisterLogin)});
+        document.getElementById('dateUp').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+        document.getElementById('dateUp').value = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
         $('#makeRegister').attr('disabled','disabled');
+
         // $('#modalProfile').modal('show');
     },
 
@@ -48,18 +57,52 @@ var app = {
         idViewNew.className = "show";
     },
 
-    changeViewHome:(idViewNew)=>{
+    changeViewHome:(idViewNew,idbutton)=>{
         if(!localStorage.getItem("sesion")) {
             if (!(homeBody == idViewNew)){
                 app.changeView(home,login);
                 return;
             }  
         }
-        if (!(idViewNew == currentView)) {
-            currentView.className = "hidden";
-            idViewNew.className = "show";
-            currentView = idViewNew;
+        if (idbutton==2) {
+            idbutton = document.getElementById("btnFooter").children[2];
         }
+        if (idbutton==3) {
+            idbutton = document.getElementById("btnFooter").children[3];
+        }
+        if (idbutton==0) {
+            idbutton = document.getElementById("btnFooter").children[0];;
+        }
+        if (!(idViewNew == currentView.view)) {
+            currentView.view.className = "hidden";
+            idViewNew.className = "show";
+            app.changeViewHomeButton(idbutton);
+            currentView.view = idViewNew;
+        }
+    },
+    changeViewHomeButton:(id)=>{
+        currentView.btnsNavFooter.children[1].className = "hidden";
+        currentView.btnsNavFooter.children[0].className = "show";
+        id.children[0].className = "hidden";
+        id.children[1].className = "show";
+        currentView.btnsNavFooter = id;
+
+    },
+    viewBenefits:()=>{
+        app.changeView(panelRegisterLogin,benefits);
+    },
+    setReserve:()=>{
+        dataReserve = Array();
+        dataReserve["entrada"]= document.getElementById("dateUp").value;
+        dataReserve["salida"]= document.getElementById("dateOut").value;
+        dataReserve["adultos"]= document.getElementById("selectAdult").value;
+        dataReserve["niños"]= document.getElementById("selectChildren").value;
+        dataReserve["nochesRomantias"]= document.getElementById("romanticNight").value;
+        dataReserve["almuerzoPersona"]= document.getElementById("lunch").value;
+        dataReserve["decoracionNoche"]= document.getElementById("rooDe").value;
+        dataReserve["spa"]= document.getElementById("spa").value;
+        
+        app.changeViewHome(viewReservesBody,3);
     }
 };
 app.initilize();

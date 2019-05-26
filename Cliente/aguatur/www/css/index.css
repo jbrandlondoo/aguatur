@@ -16,6 +16,12 @@ body{
 
 }
 
+button:focus {
+	outline:none;
+}
+input:focus {
+	outline:none;
+}
 label{
 	/*font-family: sans-serif;*/
 	color: white;
@@ -36,7 +42,6 @@ label{
 	height: 100%;
    	width: 100%;
    align-items: center;
-   z-index: 1;
 }
 
 #imgLogo{
@@ -86,6 +91,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+   background-color: rgb(11, 66, 105);
+
 }
 #logo{
 	position: relative;
@@ -144,6 +151,8 @@ label{
    width: 100% ;
 	background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .divReturnL{
@@ -220,6 +229,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .logoRegister{
@@ -227,11 +238,11 @@ label{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
-	margin: 0px;
-	text-align: center;
-	padding-top: 20px;
-	margin-bottom: 20px;
+	height: 129px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 8px;
 }
 
 .divRegisterItem{
@@ -244,6 +255,34 @@ label{
 
 
 /*---------------fin registe*/
+
+/*----------------------befefits*/
+#benefits{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-size: 100%;
+    text-align: center;
+    background-color: rgb(11, 66, 105);
+
+}
+
+.befefitsList{
+	list-style-image: url("../img/app/beneficios/vineta-beneficios-7x7px.png");
+	text-align: left;
+	font-size: 13px;
+	color: white;
+    padding: 20px;
+}
+
+#returnPRL{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 50px;
+ 	height: 20px;
+}
 
 /*--------------------------------------estos es el css del div Home y todo lo que hay dentro*/
  /*Buttons*/
@@ -277,6 +316,11 @@ label{
 }
 /*-------------------------------------fin botones genreales*/
 
+.adapterScroll{
+	width: 100%;
+	height: 8%;
+}
+
 .btnFacilities{
 	background:none;
  	outline:none;
@@ -306,7 +350,7 @@ label{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
+	height: 127px;
 	margin: 0px;
 	text-align: center;
 	padding-top: 20px;
@@ -331,15 +375,21 @@ label{
 	padding-bottom: 25px;
 }
 .homeBody{
-	height: 60%;
+	height: 66%;
+	width: 100%;
     overflow-y: scroll;
     position: absolute;
+    padding: 5px 10px 5px 0px;
 }
 
 .scrolling-wrapper {
   display: flex;
+  height: 166px;
+  width: 97%;
+  position: absolute;
   flex-wrap: nowrap;
   overflow-x: auto;
+  margin-left: 5px;
 }
 .card {
     flex: 0 0 auto;
@@ -362,14 +412,20 @@ label{
     line-height: 100%;
     color: #114f7c;
     font-size: 15px;
+    position: absolute;
+    top: 170px;
 }
 
-#optionHome{}
+#optionHome{
+	position: absolute;
+	top: 275px;
+}
 /*img*/
 .imgHome{
 	height: 160px;
     width: 285px;
     object-fit:cover;
+    border-radius: 10px;
 }
 
 /*ourFacilities*/
@@ -469,6 +525,7 @@ input[type=checkbox]{
 
 #divModalIdentification{
 	margin-top: 20px;
+	color: rgb(11, 65, 104);
 }
 
 .optionBodyModal{
@@ -646,6 +703,12 @@ input[type=checkbox]{
 	color: #EBEBEA;
 }
 
+.CancelReserve{
+	height: 25px;
+    width: 128px;
+    object-fit: cover;
+}
+
 #headReserves{
 	font-size: 11px;
 	margin-bottom: 4px;
@@ -671,4 +734,23 @@ input[type=checkbox]{
 	text-align: left;
 	line-height : 100%;
 	width: 100%;
+}
+
+.btnReserve{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 105px;
+ 	height: 25px;
+ 	margin-left: 5px;
+}
+#reserveBody{
+height: 60%;
+width: 100%;
+position: absolute;
+padding: 5px 10px 5px 10px;
+}
+
+.error{
+	border: solid red 1px !important;
 }
