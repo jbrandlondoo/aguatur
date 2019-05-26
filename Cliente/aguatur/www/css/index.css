@@ -19,6 +19,9 @@ body{
 button:focus {
 	outline:none;
 }
+input:focus {
+	outline:none;
+}
 label{
 	/*font-family: sans-serif;*/
 	color: white;
@@ -700,6 +703,12 @@ input[type=checkbox]{
 	color: #EBEBEA;
 }
 
+.CancelReserve{
+	height: 25px;
+    width: 128px;
+    object-fit: cover;
+}
+
 #headReserves{
 	font-size: 11px;
 	margin-bottom: 4px;
@@ -725,4 +734,23 @@ input[type=checkbox]{
 	text-align: left;
 	line-height : 100%;
 	width: 100%;
+}
+
+.btnReserve{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 105px;
+ 	height: 25px;
+ 	margin-left: 5px;
+}
+#reserveBody{
+height: 60%;
+width: 100%;
+position: absolute;
+padding: 5px 10px 5px 10px;
+}
+
+.error{
+	border: solid red 1px !important;
 }

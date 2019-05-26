@@ -264,6 +264,7 @@
             </div>
 
             <div id="reserveBody" class="hidden">
+                    <img src="img/app/reservar/programa-descanso-145x21px.png">
                 <div class="homeBody">
                     <table>
                         <tr>
@@ -274,7 +275,7 @@
                                 <label>Desde :</label>
                             </td>
                             <td>
-                                <input type="date" id="dateUp" name="" >   
+                                <input type="date" id="dateUp" name="">   
                             </td>
                         </tr>
                         <tr>
@@ -282,7 +283,7 @@
                                 <label>Hasta: </label>
                             </td>
                             <td>
-                                <input type="date" id="dateOut" name="">   
+                                <input type="date" id="dateOut" name="" onchange="validateDateOut()">   
                             </td>
                         </tr>
                         <tr>
@@ -318,8 +319,8 @@
                     <div>
                         <label>Total :</label> 
                     </div>
-                    <button onclick="app.changeViewHome(homeBody)">Cancelar</button>
-                    <button onclick="app.changeViewHome(resumeBody)">Reservar</button>
+                    <a href="#" class="" onclick="app.changeViewHome(homeBody,0)"><img class="CancelReserve" src="img/app/registro/cancelar-210x50px.png"></a>
+                    <button disabled="true" class="btnReserve" id="btnReserveData" onclick="app.changeViewHome(resumeBody,2)"> <img src="img/app/reservar/reservar-105x25px.png"></button>
                 </div>
             </div>
 
@@ -330,7 +331,7 @@
                             <td><input type="checkbox" name=""></td>
                             <td><label>Plan romántico</label></td>
                             <td>
-                                <select>
+                                <select id="romanticNight">
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -346,7 +347,7 @@
                             <td><input type="checkbox" name=""></td>
                             <td><label>Almuerzo día de ingreso</label></td>
                             <td>
-                                <select>
+                                <select id="lunch">
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -362,7 +363,7 @@
                             <td><input type="checkbox" name=""></td>
                             <td><label>Decoración habitación</label></td>
                             <td>
-                                <select>
+                                <select id="rooDe">
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -378,7 +379,7 @@
                             <td><input type="checkbox" name=""></td>
                             <td><label>Spa (1 hora)</label></td>
                             <td>
-                                <select>
+                                <select id="spa">
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -392,8 +393,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <button onclick="app.changeViewHome(homeBody)">Cancelar</button>
-                <button onclick="">Reservar</button>
+                <a href="#" onclick="app.changeViewHome(homeBody,0)"><img class="CancelReserve" src="img/app/registro/cancelar-210x50px.png"></a>
+                <a href="#" onclick="app.setReserve()">
+                    <img src="img/app/reservar/reservar-105x25px.png">
+                </a>
             </div>
 
             <div id="messageBody" class="hidden">
@@ -466,7 +469,7 @@
                         <img src="img/app/iconos-navegacion/mensajes-45x45px.png" class="show">
                         <img src="img/app/iconos-navegacion/mensajes-click-45x45px.png" class="hidden">
                     </button>
-                    <button class="btnOption" onclick="app.changeViewHome(reserveBody,this)">
+                    <button id="btnNavReserve" class="btnOption" onclick="app.changeViewHome(reserveBody,this)">
                         <img src="img/app/iconos-navegacion/reservas-45x45px.png" class="show">
                         <img src="img/app/iconos-navegacion/reservas-click-45x45px.png" class="hidden">
                     </button>
