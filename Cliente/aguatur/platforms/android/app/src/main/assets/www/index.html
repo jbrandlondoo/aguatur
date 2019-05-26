@@ -29,7 +29,7 @@
             <div class="buttonInicio">
                 <button id="registerRL" class="buttonIMG210x50"><img src="img/app/inicio-app/registrarme-210x50px.png"></button>
             </div>
-                <p class="pbeneficios">¿Cuáles son los <a class="abeneficios" href="#"><b>beneficios?</b></a></p>
+                <p class="pbeneficios">¿Cuáles son los <a class="abeneficios" href="#" onclick="app.changeView(panelRegisterLogin,benefits)"><b>beneficios?</b></a></p>
             <div class="divInitNotRegisteredRL">
                 <button id="initNotRegisteredRL" class="buttonIMG91x15"><img src="img/app/inicio-app/sin-registro-91x15px.png"></button>
             </div>
@@ -42,10 +42,10 @@
             <form id="formLoginData">
                 <div>
                     <div class="divLoginItem">
-                        <input type="text" class="inputForm" placeholder="Email" name="email" required>
+                        <input type="text" id="inputLoginMail" class="inputForm" placeholder="Email" name="email" required>
                     </div>
                     <div class="divLoginItem"> 
-                        <input type="password" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
+                        <input type="password" id="inputLoginPass" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
                     </div>
                 </div>
                 <button type="submit" class="loginBTN">
@@ -98,11 +98,37 @@
                 </button>
             </div>
         </div>
+
+        <div id="benefits" class="hidden">
+            <div id="homeheader">
+                <div class="logoHome">
+                    <img src="img/app/registro/logo-128px.png">
+                </div>
+                <div>
+                </div>
+            </div>
+            <img src="img/app/beneficios/mis-beneficios-200x43px.png">
+
+            <ul class="befefitsList">
+                <li><p>Ser cliente preferencial te permitirá acumular puntos y después hacer uso de estos para redimirlos en alojamiento o días de sol.</p></li>
+                <li><p>Te permitirá tener descuentos adicionales para tu estadía en el hotel.</p></li>
+                <li><p>Tendrás prioridad para asistir a los eventos especiales que realicemos en nuestras instalaciones.</p></li>
+                <li><p>Descubrir con anterioridad nuestras promociones y/o descuentos próximos.</p></li>
+                <li><p>Habilita el 100% del acceso a nuestra app y todas sus funciones.</p></li>
+            </ul>
+                
+            <div>
+                <button id="returnPRL">
+                    <img src="img/app/beneficios/volver-50x20px.png">
+                </button>
+            </div>
+        </div>
+
     <!-- campo para fotos e información -->
         <div id="home" class="hidden">
              <div id="homeheader">
                 <div class="logoHome">
-                    <button id="btnHomeProfile" data-toggle="modal" data-target="#modalProfile">
+                    <button id="btnHomeProfile" data-toggle="modal" data-target="#modalProfile" disabled="true">
                         <img src="img/app/home-app/icon-perfil-40x35px.png">
                     </button>
                     <img src="img/app/registro/logo-128px.png">
@@ -120,14 +146,13 @@
                 <div class="titleHome">
                     <img src="img/app/home-app/titulo-home-290x48px.png">
                 </div>
-                <div class="homeBody">
-                    <div class="scrolling-wrapper cardHome" id="slides">
-                    </div>
-                    <div id="textHome" class="cardHome">
+                <section class="homeBody">
+                    <section class="scrolling-wrapper cardHome" id="slides"></section> 
+                    <section id="textHome" class="cardHome">
                             <p> <b> Lorem ipsum dolor</b><br>sit amet, consectetur adipisicing elit, sed do eiusmod
                             </p>
-                    </div>
-                    <div id="optionHome" class="cardHome">
+                    </section>
+                    <section id="optionHome" class="cardHome">
                         <table>
                             <tr>
                                 <th class="ourFacilities">
@@ -234,8 +259,8 @@
                         <br>
                         <br>
                         <br>
-                    </div>
-                </div>               
+                    </section>
+                </section>               
             </div>
 
             <div id="reserveBody" class="hidden">
@@ -422,22 +447,36 @@
                 </div>
             </div>
 
+            <div id="newsBody" class="hidden">
+                <label><b>NOTICIAS</b></label>
+                <div>
+                    <img src="img/app/noticias/ups-85x85px.png">
+                </div>
+                <label>Pronto las <b>noticias</b> estaran <b>activas</b></label>
+            </div>
+
+
             <div id="homeFooter">
                 <div id="btnFooter">
-                    <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                        <img src="img/app/home-app/icon-home-45x45px.png">
+                    <button class="btnOption" onclick="app.changeViewHome(homeBody,this)">
+                        <img src="img/app/iconos-navegacion/home-45x45px.png" class="hidden">
+                        <img src="img/app/iconos-navegacion/home-click-45x45px.png" class="show">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(messageBody)">
-                        <img src="img/app/home-app/icon-mensaje-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(messageBody,this)">
+                        <img src="img/app/iconos-navegacion/mensajes-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/mensajes-click-45x45px.png" class="hidden">
                     </button>
-                    <button class="btnOption" onclick="app.changeViewHome(reserveBody)">
-                        <img src="img/app/home-app/icon-reservas-45x45px.png">
+                    <button class="btnOption" onclick="app.changeViewHome(reserveBody,this)">
+                        <img src="img/app/iconos-navegacion/reservas-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/reservas-click-45x45px.png" class="hidden">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(viewReservesBody)">
-                        <img src="img/app/home-app/icon-guardar-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(viewReservesBody,this)">
+                        <img src="img/app/iconos-navegacion/guardadas-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/guardadas-click-45x45px.png" class="hidden">
                     </button>
-                     <button class="btnOption" onclick="app.changeViewHome(homeBody)">
-                        <img src="img/app/home-app/icon-noticias-45x45px.png">
+                     <button class="btnOption" onclick="app.changeViewHome(newsBody,this)">
+                        <img src="img/app/iconos-navegacion/noticias-45x45px.png" class="show">
+                        <img src="img/app/iconos-navegacion/noticias-click-45x45px.png" class="hidden">
                     </button>
                 </div>
             </div>
@@ -521,18 +560,18 @@
                     <p id="titleOptionModalLabel">MIS OPCIONES</p>
                 </div>
                 <div class="optionBodyModal">
-                    <button id="btnFacebook">
+                    <a href="https://es-la.facebook.com/AguaturHotel/" id="btnFacebook">
                         <img src="img/app/menu-opciones/facebook-205x35px.png">
-                    </button>
-                    <button id="btnInstagram">
+                    </a>
+                    <a id="btnInstagram" href="https://www.instagram.com/explore/locations/313600140/hotel-aguatur?hl=es-la">
                         <img src="img/app/menu-opciones/instagram-205x35px.png">
-                    </button>
-                    <button id="btnCompras">
+                    </a>
+                    <a href="#" id="btnCompras">
                         <img src="img/app/menu-opciones/mis-compras-205x35px.png">
-                    </button>
+                    </a>
                     <div id="divModalIdentification">
                         <div>
-                            <label>Identificación</label>  
+                            Identificación  
                         </div>
                         <img src="img/app/menu-opciones/codigo-qr-120x120px.png">
                     </div>

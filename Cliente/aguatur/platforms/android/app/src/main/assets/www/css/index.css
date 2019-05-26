@@ -39,7 +39,6 @@ label{
 	height: 100%;
    	width: 100%;
    align-items: center;
-   z-index: 1;
 }
 
 #imgLogo{
@@ -89,6 +88,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+   background-color: rgb(11, 66, 105);
+
 }
 #logo{
 	position: relative;
@@ -147,6 +148,8 @@ label{
    width: 100% ;
 	background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .divReturnL{
@@ -223,6 +226,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .logoRegister{
@@ -247,6 +252,34 @@ label{
 
 
 /*---------------fin registe*/
+
+/*----------------------befefits*/
+#benefits{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-size: 100%;
+    text-align: center;
+    background-color: rgb(11, 66, 105);
+
+}
+
+.befefitsList{
+	list-style-image: url("../img/app/beneficios/vineta-beneficios-7x7px.png");
+	text-align: left;
+	font-size: 13px;
+	color: white;
+    padding: 20px;
+}
+
+#returnPRL{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 50px;
+ 	height: 20px;
+}
 
 /*--------------------------------------estos es el css del div Home y todo lo que hay dentro*/
  /*Buttons*/
@@ -340,14 +373,20 @@ label{
 }
 .homeBody{
 	height: 66%;
+	width: 100%;
     overflow-y: scroll;
     position: absolute;
+    padding: 5px 10px 5px 0px;
 }
 
 .scrolling-wrapper {
   display: flex;
+  height: 166px;
+  width: 97%;
+  position: absolute;
   flex-wrap: nowrap;
   overflow-x: auto;
+  margin-left: 5px;
 }
 .card {
     flex: 0 0 auto;
@@ -370,14 +409,20 @@ label{
     line-height: 100%;
     color: #114f7c;
     font-size: 15px;
+    position: absolute;
+    top: 170px;
 }
 
-#optionHome{}
+#optionHome{
+	position: absolute;
+	top: 275px;
+}
 /*img*/
 .imgHome{
 	height: 160px;
     width: 285px;
     object-fit:cover;
+    border-radius: 10px;
 }
 
 /*ourFacilities*/
@@ -477,6 +522,7 @@ input[type=checkbox]{
 
 #divModalIdentification{
 	margin-top: 20px;
+	color: rgb(11, 65, 104);
 }
 
 .optionBodyModal{

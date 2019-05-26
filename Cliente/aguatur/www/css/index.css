@@ -88,6 +88,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+   background-color: rgb(11, 66, 105);
+
 }
 #logo{
 	position: relative;
@@ -146,6 +148,8 @@ label{
    width: 100% ;
 	background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .divReturnL{
@@ -222,6 +226,8 @@ label{
    margin: 0px;
    background-size: 100%;
    text-align: center;
+        background-color: rgb(11, 66, 105);
+
 }
 
 .logoRegister{
@@ -229,11 +235,11 @@ label{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 115px;
-	margin: 0px;
-	text-align: center;
-	padding-top: 20px;
-	margin-bottom: 20px;
+	height: 129px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 8px;
 }
 
 .divRegisterItem{
@@ -246,6 +252,34 @@ label{
 
 
 /*---------------fin registe*/
+
+/*----------------------befefits*/
+#benefits{
+	background: url(../img/app/inicio-app/fondo-inicio-360x640px.png) no-repeat fixed center;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-size: 100%;
+    text-align: center;
+    background-color: rgb(11, 66, 105);
+
+}
+
+.befefitsList{
+	list-style-image: url("../img/app/beneficios/vineta-beneficios-7x7px.png");
+	text-align: left;
+	font-size: 13px;
+	color: white;
+    padding: 20px;
+}
+
+#returnPRL{
+	background:none;
+ 	outline:none;
+ 	border: none;
+ 	width: 50px;
+ 	height: 20px;
+}
 
 /*--------------------------------------estos es el css del div Home y todo lo que hay dentro*/
  /*Buttons*/
@@ -488,6 +522,7 @@ input[type=checkbox]{
 
 #divModalIdentification{
 	margin-top: 20px;
+	color: rgb(11, 65, 104);
 }
 
 .optionBodyModal{

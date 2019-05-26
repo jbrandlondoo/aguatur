@@ -6,6 +6,7 @@ var panelRegisterLogin,login,register,home;
 var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
+var benefits;
 
 var currentView;
 
@@ -23,15 +24,16 @@ var app = {
         resumeBody = document.getElementById("resumeBody");
         messageBody = document.getElementById("messageBody");
         viewReservesBody = document.getElementById("viewReservesBody");
+        benefits = document.getElementById("benefits");
+        newsBody = document.getElementById("newsBody");
         currentView = new Object();
         currentView.view = homeBody;
         currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
         currentView.indexBtnsNav = 0;
-        newsBody = document.getElementById("newsBody");
-        currentView = homeBody;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
+            document.getElementById("btnHomeProfile").disabled = false;
         }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
@@ -41,8 +43,10 @@ var app = {
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
+        document.getElementById("returnPRL").addEventListener("click",()=>{app.changeView(benefits,panelRegisterLogin)});
 
         $('#makeRegister').attr('disabled','disabled');
+
         // $('#modalProfile').modal('show');
     },
 
@@ -72,6 +76,9 @@ var app = {
         id.children[1].className = "show";
         currentView.btnsNavFooter = id;
 
+    },
+    viewBenefits:()=>{
+        app.changeView(panelRegisterLogin,benefits);
     }
 };
 app.initilize();
