@@ -9,6 +9,19 @@ function completeDateFormat(dateObject){
     let fecha = dateObject.format('dd/mm/yyyy');    
     fechaCompleta = dia.concat(fecha);
      
-
 return fechaCompleta = fechaCompleta.replace(".",", ");
+}
+//Método para cear un código QR
+function makeQrCode(texto){
+
+    new QRCode("qr", {
+        text: texto,
+        width: 94,
+        height: 94,
+        colorDark : "#ffffff",
+        colorLight : "#117abf",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+    
+    
 }

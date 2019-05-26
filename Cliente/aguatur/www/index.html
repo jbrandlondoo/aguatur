@@ -402,8 +402,8 @@
             <div id="messageBody" class="hidden">
                 <label><b>MENSAJES</b></label>
                 <button id="btnMessageModal" data-toggle="modal" data-target="#modalMessage">+</button>
-                <div class="scrollingMessage">
-                     <div class="divMessage">
+                <div class="scrollingMessage" id="messages">
+                    <!-- <div class="divMessage">
                         <div id="headMessageList">
                             <div id="headMessageInfoDate"><label>mar,5/21/19</label></div>
                             <div id="headMessageInfoStatus"><label>Recibido</label></div>
@@ -417,11 +417,10 @@
                             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>    
-                    </div>
-                    <!-- etse no se borra -->
+                    </div>                    
                     <br>
                     <br>
-                    <br>
+                    <br>-->
                 </div>
             </div> 
 
@@ -576,6 +575,9 @@
                         <div>
                             Identificación  
                         </div>
+                        <div id="qrIdentificacion">
+                            <div id="qr"></div>
+                        </div>
                         <img src="img/app/menu-opciones/codigo-qr-120x120px.png">
                     </div>
                 </div>
@@ -617,6 +619,7 @@
         <script type="text/javascript" src="js/elementController.js"></script>
         <script type="text/javascript" src="js/libraryMethods.js"></script>
         <script type="text/javascript" src="js/date.format.js"></script>
+        <script type="text/javascript" src="js/qrcode.min.js"></script>
 
     </body>
 </html>
