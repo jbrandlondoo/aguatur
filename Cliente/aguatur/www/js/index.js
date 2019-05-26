@@ -3,7 +3,7 @@
 
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
-var reserveBody,homeBody;
+var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
 
@@ -24,6 +24,7 @@ var app = {
         resumeBody = document.getElementById("resumeBody");
         messageBody = document.getElementById("messageBody");
         viewReservesBody = document.getElementById("viewReservesBody");
+        newsBody = document.getElementById("newsBody");
         currentView = homeBody;
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
