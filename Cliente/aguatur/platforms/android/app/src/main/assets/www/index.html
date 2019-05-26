@@ -39,16 +39,21 @@
         </div>
     <!-- panel de login con los campos de ingreso de user y password, ademas de la posibilidad de restablecer password -->
         <div id="login" class="hidden">
-            <div id="logo">
+            <div id="logoLogin" class="show">
                 <img src="img/app/inicio-app/logo-256px.png">
+            </div>
+            <div id="logoLoginPanel" class="hidden">
+                <div class="logoRegister">
+                    <img src="img/app/registro/logo-128px.png">
+                </div>
             </div>
             <form id="formLoginData">
                 <div>
                     <div class="divLoginItem">
-                        <input type="text" id="inputLoginMail" class="inputForm" placeholder="Email" name="email" required>
+                        <input type="text" id="inputLoginMail" class="inputForm" placeholder="Email" name="email" onclick="app.viewPanelLogin()" required>
                     </div>
                     <div class="divLoginItem"> 
-                        <input type="password" id="inputLoginPass" class="inputForm" placeholder="Contraseña" minlength="6" name="password" required>
+                        <input type="password" id="inputLoginPass" class="inputForm" placeholder="Contraseña" minlength="6" name="password" onclick="app.viewPanelLogin()" required>
                     </div>
                 </div>
                 <button type="submit" class="loginBTN">
@@ -262,6 +267,8 @@
                         <br>
                         <br>
                         <br>
+                        <br>
+                        <br>
                     </section>
                 </section>               
             </div>
@@ -442,6 +449,8 @@
                     <br>
                     <br>
                     <br>
+                    <br>
+                    <br>
                 </div>
             </div> 
 
@@ -464,6 +473,8 @@
                     </div>
 
                     <!-- este no se borra -->
+                    <br>
+                    <br>
                     <br>
                     <br>
                     <br>

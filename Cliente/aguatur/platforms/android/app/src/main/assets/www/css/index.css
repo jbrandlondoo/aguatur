@@ -115,6 +115,8 @@ label{
 	text-align: center;
 	padding-top: 50px;
 }
+
+
 /*por class*/
 .buttonInicio{
 	width: 100%;
@@ -164,6 +166,18 @@ label{
 
 }
 
+#logoLogin{
+	position: relative;
+	top: -1px;
+	background-image: url(../img/app/inicio-app/cabezote-inicio-360x260px.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 51%;
+	margin: 0px;
+	text-align: center;
+	padding-top: 50px;
+}
 .divReturnL{
 	margin-top: 20px;
     text-align: center;

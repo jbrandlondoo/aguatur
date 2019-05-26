@@ -33,11 +33,10 @@ var app = {
         currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
         currentView.indexBtnsNav = 0;
         //asignacion de eventos
-
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
         document.getElementById("initNotRegisteredRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,home)});
-        document.getElementById("returnL").addEventListener("click",()=>{app.changeView(login,panelRegisterLogin)});
+        document.getElementById("returnL").addEventListener("click",()=>{app.changeView(login,panelRegisterLogin);app.hiddenPanelLogin();});
         document.getElementById("initNotRegisteredR").addEventListener("click",()=>{app.changeView(register,home)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
@@ -114,6 +113,14 @@ var app = {
 
         sendMessage(dataMessage);
         
+    },
+    viewPanelLogin:()=>{
+        document.getElementById("logoLogin").className="hidden";
+        document.getElementById("logoLoginPanel").className="show";
+    },
+    hiddenPanelLogin:()=>{
+        document.getElementById("logoLoginPanel").className="hidden";
+        document.getElementById("logoLogin").className="show";
     }
 };
 app.initilize();
@@ -156,13 +163,6 @@ $('#registerData').submit(function (e) {
 
 // arreglar
 
-
-function diaSemana(dia,mes,anio){
-    var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
-    var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
-    console.log( "Dia de la semana : " + dias[dt.getUTCDay()]);    
-};
-var tem;
 function edit(id){
 tem = id;
     id.parentElement.parentElement.children[0].children[0].children[1].readOnly=false;
