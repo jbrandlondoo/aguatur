@@ -1,6 +1,4 @@
 var config;
-var btnReg='';
-var txtName, txtEmailAd, txtPass, txtVerPass;
 
 window.onload = start;
 
@@ -12,8 +10,9 @@ function start(){
   //document.getElementById("loadingDiv").className = "hidden";
 }
 
+//Funcion para hacer el registro de la persona en la aplicación
 function putRegister(dataRegister){
-  console.log("entré aquí nea >:V");
+
   var db = firebase.firestore()
     db.collection("Registrados").doc().set({
       Correo:dataRegister["email"],
@@ -27,6 +26,7 @@ function putRegister(dataRegister){
       console.error("Error escribiendo el documento: ",error)
     });
 }
+//Función para obtener las imagenes del slide del home desde la BD
 function getHomeContent(){
   var db = firebase.firestore();
   db.collection("ImagenesHome")
@@ -41,26 +41,24 @@ function getHomeContent(){
         console.log("Error getting documents: ", error);
     });
 }
-
+//Método para obtener la visualización de los mensajes en la pagina de mensajes
 function getMessagePageContent(userEmail){
-  let destinatario, remitente, completo;
-
-  var array1 = ['a', 'b', 'c'];
-  var array2 = ['d', 'e', 'f'];
+  let destinatario=[], remitente, completo;
   
-  console.log(array1.concat(array2));
-
-  remitente=getMessageData("Remitente",userEmail);
-  destinatario=getMessageData("Destinatario",userEmail);
+  new Promise(function(resolve, reject) {
+    remitente=getMessageData("Remitente",userEmail);
+    destinatario=getMessageData("Destinatario",userEmail);  
+    resolve(remitente.concat(destinatario))
   
-  console.log(remitente.concat(destinatario));
-  completo = remitente.concat(destinatario);
-  console.log(completo)
+  }).then(function(result) { // (**)
 
+    alert(result); // 1    
   
+  }); 
  
 }
-var ses, lel;
+//Método para obtener un listado demensajes dado si se requiere de el remitente
+//o de el destinatario, también se requiere del email
 function getMessageData(tipo,userEmail){
 
   let list=[]  
@@ -70,22 +68,20 @@ function getMessageData(tipo,userEmail){
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-          console.log(doc.data())
-          list.push(doc.data())
-                         
+          list.push(doc.data())             
        });
-    }).then(()=>{
-      console.log(list)
-      return list;
-    })    
+    }) 
    .catch(function(error) {
        console.log("Error getting documents: ", error);
    });    
-
+return list;
 }
 
+//Función para iniciar sesión, se requiere de el email y la contraseña del usuario
+//Este método también lleva a la pantalla de inicio y guarda los datos de usuario
+//En el localstorage
 function findAccount(email, password){  
-  var db = firebase.firestore();
+  let db = firebase.firestore();
   let data, flag;
 
    db.collection("Registrados").where("Correo","==", email).where("Password","==", password)
@@ -120,4 +116,33 @@ function findAccount(email, password){
         console.log("Error getting documents: ", error);
     }); 
    
+}
+
+//Función para hacer una reserva dada las fechas
+function putReservation(reservationObj){
+//Ejemplo de objeto
+  /* a = {id:"12b12bnb3",
+        entrada:new Date(2019,05,23),
+        salida:new Date(2019,05,26),
+        adultos:2,
+        ninos:1,
+        total:100000}
+*/
+  let db = firebase.firestore()
+
+    db.collection("Reservas").doc().set({
+      IdCliente:getSessionId(),
+      FechaEntrada:reservationObj.entrada,
+      FechaSalida:reservationObj.salida,
+      Adultos:reservationObj.adultos,
+      Ninos:reservationObj.ninos,
+      Total:reservationObj.total
+    })
+    .then(function(){
+      console.log("Documento esctrito")
+    })
+    .catch(function(error){
+      console.error("Error escribiendo el documento: ",error)
+    });
+
 }

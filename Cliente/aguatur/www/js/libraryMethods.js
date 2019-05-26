@@ -1,3 +1,5 @@
+
+//Método para dar formato a la fecha en el listado de mensajes
 function completeDateFormat(dateObject){
     let fechaCompleta;
     //Fri May 10 2019 00:00:00 GMT-0500 (hora estándar de Colombia)

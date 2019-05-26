@@ -8,3 +8,7 @@ function getSessionEmail(){
     a = JSON.parse(localStorage.getItem("sesion"));
     return a.correo;
 }
+function getSessionId(){
+    a = JSON.parse(localStorage.getItem("sesion"));
+    return a.id;
+}
