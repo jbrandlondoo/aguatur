@@ -9,17 +9,20 @@
         <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/animatePreload.css">
+
         <title>AguaTur</title>
     </head>
     <body id="body">
         <script type="text/javascript" src="js/resolucion.js"></script> 
 
     <!-- ------------------------------panel de carga -->
-        <div id="loadingDiv" class="hidden">
+        <div id="loadingDiv" class="show">
             <img id="imgLogo" src="img/app/logo-app/logo-256px.png">
+            <div class="preloader"></div>
         </div>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
-        <div id="panelRegisterLogin" class="show">
+        <div id="panelRegisterLogin" class="hidden">
             <div id="logo">
                 <img src="img/app/inicio-app/logo-256px.png">
             </div>
