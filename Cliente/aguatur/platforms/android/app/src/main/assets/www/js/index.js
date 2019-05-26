@@ -4,7 +4,7 @@
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
 var reserveBody,homeBody,newsBody;
-var dataRegister,dataLogin,dataUpdate;
+var dataRegister,dataLogin,dataUpdate,loadingDiv;
 var resumeBody,messageBody,viewReservesBody;
 var benefits;
 var dataReserve, dataMessage;
@@ -27,15 +27,12 @@ var app = {
         viewReservesBody = document.getElementById("viewReservesBody");
         benefits = document.getElementById("benefits");
         newsBody = document.getElementById("newsBody");
+        loadingDiv = document.getElementById("loadingDiv");
         currentView = new Object();
         currentView.view = homeBody;
         currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
         currentView.indexBtnsNav = 0;
         //asignacion de eventos
-        if(localStorage.getItem("sesion")){
-            app.changeView(panelRegisterLogin,home);
-            document.getElementById("btnHomeProfile").disabled = false;
-        }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});
@@ -179,4 +176,19 @@ function save(id){
     id.parentElement.children[0].className = "show";
     var value = id.parentElement.parentElement.children[0].children[0].children[1].value;
     console.log(value);
+}
+
+function getResumenReserve(){
+    if (document.getElementById("dateOut").value == "") {
+        document.getElementById('dateOut').className = "error";
+    }else{
+        addResumen();
+        app.changeViewHome(resumeBody,2);
+        document.getElementById('dateOut').className = "";
+    }
+}
+
+
+function addResumen(){
+    document.getElementById("textResumen").innerHTML = "<p>Fecha de ingreso "+document.getElementById("dateUp").value+" fecha de salida "+document.getElementById("dateOut").value+" para ("+document.getElementById("selectAdult").value+") adulto(s) y "+document.getElementById("selectChildren").value+" niño(s).<br><i class='description'>Alojamiento+Alimentación+Disfrute de las instalaciones</i></p>";
 }

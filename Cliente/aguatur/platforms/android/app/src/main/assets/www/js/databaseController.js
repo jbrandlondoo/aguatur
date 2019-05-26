@@ -7,7 +7,15 @@ function start(){
   config = databaseConfig();
   //agregación de elementos al home
   getHomeContent();
-  //document.getElementById("loadingDiv").className = "hidden";
+  setTimeout(()=>{
+    if(localStorage.getItem("sesion")){
+            app.changeView(loadingDiv,home);
+            document.getElementById("btnHomeProfile").className = "visibiliBTN";
+            document.getElementById("btnHomeOpNet").className = "visibiliBTN";
+      }else{
+          app.changeView(loadingDiv,panelRegisterLogin);
+      }
+  }, 1500);
 }
 
 //Funcion para hacer el registro de la persona en la aplicación

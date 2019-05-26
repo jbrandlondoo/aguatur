@@ -4,7 +4,7 @@
  // variables con los div padres
 var panelRegisterLogin,login,register,home;
 var reserveBody,homeBody,newsBody;
-var dataRegister,dataLogin,dataUpdate;
+var dataRegister,dataLogin,dataUpdate,loadingDiv;
 var resumeBody,messageBody,viewReservesBody;
 var benefits;
 var dataReserve, dataMessage;
@@ -28,16 +28,12 @@ var app = {
         viewReservesBody = document.getElementById("viewReservesBody");
         benefits = document.getElementById("benefits");
         newsBody = document.getElementById("newsBody");
+        loadingDiv = document.getElementById("loadingDiv");
         currentView = new Object();
         currentView.view = homeBody;
         currentView.btnsNavFooter = document.getElementById("btnFooter").children[0];
         currentView.indexBtnsNav = 0;
         //asignacion de eventos
-        if(localStorage.getItem("sesion")){
-            app.changeView(panelRegisterLogin,home);
-             document.getElementById("btnHomeProfile").className = "visibiliBTN";
-            document.getElementById("btnHomeOpNet").className = "visibiliBTN";
-        }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
         document.getElementById("registerRL").addEventListener("click",()=>{app.changeView(panelRegisterLogin,register)});

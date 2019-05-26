@@ -13,7 +13,7 @@ body{
 	width: 100%;
 	position: fixed; 
 	overflow: hidden;
-	font-family: sans-serif;
+	font-family: Verdana, Geneva, sans-serif;
 
 }
 
@@ -26,6 +26,7 @@ input:focus {
 label{
 	/*font-family: sans-serif;*/
 	color: white;
+	line-height: 11px;
 }
 
  .hidden{
@@ -35,6 +36,13 @@ label{
     display: block;
  }
 
+
+.NvisibiliBTN{
+	visibility: hidden;
+}
+.visibiliBTN{
+	visibility: visible;
+}
 
 /*-------------------div carga*/
 
@@ -380,7 +388,9 @@ label{
 	width: 100%;
     overflow-y: scroll;
     position: absolute;
-    padding: 5px 10px 5px 0px;
+    padding: 5px 0px 5px 0px;
+    margin: 10px 0 0 0;
+    font-size: 14px;
 }
 
 .scrolling-wrapper {
@@ -452,8 +462,23 @@ select{
 	background:#114675;
 	border:none;
 	border-radius:5px;
+	margin: 0 5px;
 }
 
+.reserveItem{
+	float: left;
+    width: 77px;
+    height: 23px;
+    background: rgb(17, 122, 191);
+    border-radius: 0 9px 9px 0;
+    margin-right: 24px;
+}
+
+.imageReserveTitle{
+	margin-bottom: -1px;
+    margin-left: 169px;
+    margin-top: -41px;
+}
 /*input*/
 
 
@@ -466,9 +491,19 @@ select{
 
 #tableResumen{
 	margin: 10px 20px 10px 20px;
-	font-size: 15px;
+	font-size: 13px;
+	text-align: left;
 }
 
+.description{
+	font-size: 6px;
+}
+#textResumen{
+	font-size: 13px;
+    line-height: 14px;
+    padding: 10px;
+    color: white;
+}
 input[type=checkbox]{
  	background:white;
  	width:20px;
@@ -595,7 +630,7 @@ input[type=checkbox]{
 
 /*label*/
 #titleOptionModalLabel{
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	color: white;
 }
 /*---------------fin modalOption*/
@@ -720,9 +755,14 @@ input[type=checkbox]{
     float: right;
 }
 
+.divTotal{
+	text-align: right;
+}
+
 .CancelReserve{
 	height: 25px;
     width: 128px;
+    border-radius: 4px 11px 0px 0px;
     object-fit: cover;
 }
 
@@ -765,7 +805,7 @@ input[type=checkbox]{
 height: 60%;
 width: 100%;
 position: absolute;
-padding: 5px 10px 5px 10px;
+padding: 5px 10px 5px 0;
 }
 
 .error{
