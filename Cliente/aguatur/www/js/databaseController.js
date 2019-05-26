@@ -125,16 +125,9 @@ function findAccount(email, password){
    
 }
 
-//Función para hacer una reserva dada las fechas
+//Función para hacer una reserva dado un objeto de reserva
 function putReservation(reservationObj){
-//Ejemplo de objeto
-  /* a = {id:"12b12bnb3",
-        entrada:new Date(2019,05,23),
-        salida:new Date(2019,05,26),
-        adultos:2,
-        ninos:1,
-        total:100000}
-*/
+
   reservationObj.total = 10000;
   let db = firebase.firestore()
 
@@ -156,4 +149,16 @@ function putReservation(reservationObj){
       console.error("Error escribiendo el documento: ",error)
     });
 
+}
+//Esta función permite enviar un mensaje
+function sendMessage(messageData){
+  let db = firebase.firestore()
+
+    db.collection("Mensajes").doc().set(messageData)
+    .then(function(){
+      console.log("Documento esctrito")
+    })
+    .catch(function(error){
+      console.error("Error escribiendo el documento: ",error)
+    });
 }

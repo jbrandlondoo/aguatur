@@ -7,7 +7,7 @@ var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
 var benefits;
-var dataReserve;
+var dataReserve, dataMessage;
 
 var currentView;
 
@@ -104,8 +104,18 @@ var app = {
         
         putReservation(dataReserve);
    
-
         app.changeViewHome(viewReservesBody,3);
+        
+    },
+    setMessage:()=>{
+        dataMessage = new Object;
+        dataMessage["titulo"]=document.getElementById("messageSubjet").value;
+        dataMessage["texto"]=document.getElementById("message").value;
+        dataMessage["remitente"]=getSessionEmail();
+        dataMessage["destinatario"]="Aguatur";
+        dataMessage["fecha"]=new Date();
+
+        sendMessage(dataMessage);
         
     }
 };
