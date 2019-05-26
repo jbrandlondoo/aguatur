@@ -7,6 +7,7 @@ var reserveBody,homeBody,newsBody;
 var dataRegister,dataLogin,dataUpdate;
 var resumeBody,messageBody,viewReservesBody;
 var benefits;
+var dataReserve, dataMessage;
 
 var currentView;
 
@@ -44,7 +45,8 @@ var app = {
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("cancelRegister").addEventListener("click",()=>{app.changeView(register,panelRegisterLogin)});
         document.getElementById("returnPRL").addEventListener("click",()=>{app.changeView(benefits,panelRegisterLogin)});
-
+        document.getElementById('dateUp').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+        document.getElementById('dateUp').value = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
         $('#makeRegister').attr('disabled','disabled');
 
         // $('#modalProfile').modal('show');
@@ -61,6 +63,15 @@ var app = {
                 app.changeView(home,login);
                 return;
             }  
+        }
+        if (idbutton==2) {
+            idbutton = document.getElementById("btnFooter").children[2];
+        }
+        if (idbutton==3) {
+            idbutton = document.getElementById("btnFooter").children[3];
+        }
+        if (idbutton==0) {
+            idbutton = document.getElementById("btnFooter").children[0];;
         }
         if (!(idViewNew == currentView.view)) {
             currentView.view.className = "hidden";
@@ -79,6 +90,33 @@ var app = {
     },
     viewBenefits:()=>{
         app.changeView(panelRegisterLogin,benefits);
+    },
+    setReserve:()=>{
+        dataReserve = Array();
+        dataReserve["entrada"]= new Date(document.getElementById("dateUp").value.replace("-",","));
+        dataReserve["salida"]= new Date(document.getElementById("dateOut").value.replace("-",","));
+        dataReserve["adultos"]= parseInt(document.getElementById("selectAdult").value);
+        dataReserve["ninos"]= parseInt(document.getElementById("selectChildren").value);
+        dataReserve["nochesRomantias"]= parseInt(document.getElementById("romanticNight").value);
+        dataReserve["almuerzoPersona"]= parseInt(document.getElementById("lunch").value);
+        dataReserve["decoracionNoche"]= parseInt(document.getElementById("rooDe").value);
+        dataReserve["spa"]= parseInt(document.getElementById("spa").value);
+        
+        putReservation(dataReserve);
+   
+        app.changeViewHome(viewReservesBody,3);
+        
+    },
+    setMessage:()=>{
+        dataMessage = new Object;
+        dataMessage["titulo"]=document.getElementById("messageSubjet").value;
+        dataMessage["texto"]=document.getElementById("message").value;
+        dataMessage["remitente"]=getSessionEmail();
+        dataMessage["destinatario"]="Aguatur";
+        dataMessage["fecha"]=new Date();
+
+        sendMessage(dataMessage);
+        
     }
 };
 app.initilize();

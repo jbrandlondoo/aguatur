@@ -1,6 +1,8 @@
 function saveSession(dataItem){
     localStorage.setItem("sesion",JSON.stringify(dataItem));
-    document.getElementById("btnHomeProfile").disabled = false;
+    document.getElementById("btnHomeProfile").className = "visibiliBTN";
+    document.getElementById("btnHomeOpNet").className = "visibiliBTN";
+
 }
 function closeSession(){ 
     deleteChild("messages");   

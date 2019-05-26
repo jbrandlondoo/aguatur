@@ -35,7 +35,8 @@ var app = {
         //asignacion de eventos
         if(localStorage.getItem("sesion")){
             app.changeView(panelRegisterLogin,home);
-            document.getElementById("btnHomeProfile").disabled = false;
+             document.getElementById("btnHomeProfile").className = "visibiliBTN";
+            document.getElementById("btnHomeOpNet").className = "visibiliBTN";
         }
 
         document.getElementById("initSesion").addEventListener("click",()=>{app.changeView(panelRegisterLogin,login)});
@@ -180,4 +181,19 @@ function save(id){
     id.parentElement.children[0].className = "show";
     var value = id.parentElement.parentElement.children[0].children[0].children[1].value;
     console.log(value);
+}
+
+function getResumenReserve(){
+    if (document.getElementById("dateOut").value == "") {
+        document.getElementById('dateOut').className = "error";
+    }else{
+        addResumen();
+        app.changeViewHome(resumeBody,2);
+        document.getElementById('dateOut').className = "";
+    }
+}
+
+
+function addResumen(){
+    document.getElementById("textResumen").innerHTML = "<p>Fecha de ingreso "+document.getElementById("dateUp").value+" fecha de salida "+document.getElementById("dateOut").value+" para ("+document.getElementById("selectAdult").value+") adulto(s) y "+document.getElementById("selectChildren").value+" niño(s).<br><i class='description'>Alojamiento+Alimentación+Disfrute de las instalaciones</i></p>";
 }
