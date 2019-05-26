@@ -317,7 +317,8 @@
                         </tr>
                     </table>
                     <div>
-                        <label>Total :</label> 
+                        <label>Total :</label>
+                        <div class="total"></div> 
                     </div>
                     <a href="#" class="" onclick="app.changeViewHome(homeBody,0)"><img class="CancelReserve" src="img/app/registro/cancelar-210x50px.png"></a>
                     <button disabled="true" class="btnReserve" id="btnReserveData" onclick="app.changeViewHome(resumeBody,2)"> <img src="img/app/reservar/reservar-105x25px.png"></button>
@@ -569,14 +570,14 @@
                     <a id="btnInstagram" href="https://www.instagram.com/explore/locations/313600140/hotel-aguatur?hl=es-la">
                         <img src="img/app/menu-opciones/instagram-205x35px.png">
                     </a>
-                    <a href="#" id="btnCompras">
+                    <a href="#" id="btnCompras" onclick="app.changeViewHome(viewReservesBody,3)" data-dismiss="modal">
                         <img src="img/app/menu-opciones/mis-compras-205x35px.png">
                     </a>
                     <div id="divModalIdentification">
                         <div>
                             Identificación  
                         </div>
-                        <img src="img/app/menu-opciones/codigo-qr-120x120px.png">
+                        <div id="codeQr"></div>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ html{
   display: flex;
   flex-direction: column;*/
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -544,6 +545,14 @@ input[type=checkbox]{
 	padding-top: 3px;
 }
 
+#codeQr{
+	height: 120px;
+    width: 120px;
+    background: rgb(17, 122, 191);
+    border-radius: 11px;
+    margin: auto;
+}
+
 /*button*/
 #btnFacebook{
 	background:none;
@@ -664,7 +673,7 @@ input[type=checkbox]{
 	margin-bottom: 4px;
 }
 
-#subjectMesageList{
+#subjectMessageList{
 	font-size: 15px;
 	text-align: left;
 }
@@ -701,6 +710,14 @@ input[type=checkbox]{
 	padding: 10px 20px 10px 20px;
 	margin-top: 0px;
 	color: #EBEBEA;
+}
+
+.total{
+	    height: 26px;
+    width: 106px;
+    background: white;
+    border-radius: 10px 0 0 10px;
+    float: right;
 }
 
 .CancelReserve{
