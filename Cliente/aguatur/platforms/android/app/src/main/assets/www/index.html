@@ -9,17 +9,20 @@
         <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/animatePreload.css">
+
         <title>AguaTur</title>
     </head>
     <body id="body">
         <script type="text/javascript" src="js/resolucion.js"></script> 
 
     <!-- ------------------------------panel de carga -->
-        <div id="loadingDiv" class="hidden">
+        <div id="loadingDiv" class="show">
             <img id="imgLogo" src="img/app/logo-app/logo-256px.png">
+            <div class="preloader"></div>
         </div>
     <!-- panel de registro con las opciones de login,registro e inicio sin registro -->
-        <div id="panelRegisterLogin" class="show">
+        <div id="panelRegisterLogin" class="hidden">
             <div id="logo">
                 <img src="img/app/inicio-app/logo-256px.png">
             </div>
@@ -128,11 +131,11 @@
         <div id="home" class="hidden">
              <div id="homeheader">
                 <div class="logoHome">
-                    <button id="btnHomeProfile" data-toggle="modal" data-target="#modalProfile" disabled="true">
+                    <button id="btnHomeProfile" data-toggle="modal" data-target="#modalProfile" class="NvisibiliBTN" >
                         <img src="img/app/home-app/icon-perfil-40x35px.png">
                     </button>
                     <img src="img/app/registro/logo-128px.png">
-                    <button id="btnHomeOpNet" data-toggle="modal" data-target="#modalOption">
+                    <button id="btnHomeOpNet" data-toggle="modal" data-target="#modalOption" class="NvisibiliBTN">
                         <img src="img/app/home-app/icon-opciones-35x20px.png">
                     </button>
                 </div>
@@ -264,35 +267,40 @@
             </div>
 
             <div id="reserveBody" class="hidden">
-                    <img src="img/app/reservar/programa-descanso-145x21px.png">
+                    <img class="imageReserveTitle" src="img/app/reservar/programa-descanso-145x21px.png">
                 <div class="homeBody">
                     <table>
                         <tr>
-                            <label>Fecha </label>
+                            <td>
+                                <div class="reserveItem">
+                                    <label>Fecha </label>
+                                </div>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td><label>Desde :</label></td>
+                                        <td><input type="date" id="dateUp" name=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label>Hasta: </label></td>
+                                        <td> <input type="date" id="dateOut" name="" onchange="validateDateOut()"> </td>
+                                    </tr>
+                                </table>
+
+                            </td>
                         </tr>
+                    </table>
+                    <br>
+                    <table>
                         <tr>
                             <td>
-                                <label>Desde :</label>
-                            </td>
-                            <td>
-                                <input type="date" id="dateUp" name="">   
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Hasta: </label>
-                            </td>
-                            <td>
-                                <input type="date" id="dateOut" name="" onchange="validateDateOut()">   
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Personas </label>
+                                <div class="reserveItem">
+                                    <label>Personas </label>
+                                </div>
                             </td>
                             <td>
                                 <select id="selectAdult">
-                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -316,21 +324,26 @@
                             </td>
                         </tr>
                     </table>
-                    <div>
-                        <label>Total :</label>
+                    <br>
+                    <div class="divTotal">
+                        <label>Total : </label>
                         <div class="total"></div> 
                     </div>
+                    <br>
                     <a href="#" class="" onclick="app.changeViewHome(homeBody,0)"><img class="CancelReserve" src="img/app/registro/cancelar-210x50px.png"></a>
-                    <button disabled="true" class="btnReserve" id="btnReserveData" onclick="app.changeViewHome(resumeBody,2)"> <img src="img/app/reservar/reservar-105x25px.png"></button>
+                    <button class="btnReserve" id="btnReserveData" onclick="getResumenReserve()"> <img src="img/app/reservar/reservar-105x25px.png"></button>
                 </div>
             </div>
 
             <div id="resumeBody" class="hidden">
+                <label><b>Resumen</b></label>
+                <div id="textResumen"></div>
+                <label>También puedes agregar a tu reserva</label>
                 <table id="tableResumen"> 
                     <tbody>
                         <tr>
-                            <td><input type="checkbox" name=""></td>
-                            <td><label>Plan romántico</label></td>
+                            <!-- <td><input type="checkbox" name=""></td> -->
+                            <td><label>Plan romántico <i class="description">(Decoración habitacion, Cena romántica, Botella de Champagne, Hidromasaje)</i></label></td>
                             <td>
                                 <select id="romanticNight">
                                     <option>0</option>
@@ -342,10 +355,10 @@
                                     <option>6</option>
                                 </select>
                             </td>
-                            <td><label>$150.000 por noche</label></td>
+                            <td><label>$150.000<i class="description">(por noche)</i></label></td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name=""></td>
+                            <!-- <td><input type="checkbox" name=""></td> -->
                             <td><label>Almuerzo día de ingreso</label></td>
                             <td>
                                 <select id="lunch">
@@ -358,13 +371,14 @@
                                     <option>6</option>
                                 </select>
                             </td>
-                            <td><label>$15.000 por persona</label></td>
+                            <td><label>$15.000<i class="description">(por persona)</i></label></td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name=""></td>
+                            <!-- <td><input type="checkbox" name=""></td> -->
                             <td><label>Decoración habitación</label></td>
                             <td>
                                 <select id="rooDe">
+
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -374,10 +388,10 @@
                                     <option>6</option>
                                 </select>
                             </td>
-                            <td><label>$60.000 por noche</label></td>
+                            <td><label>$60.000<i class="description">(por noche)</i></label></td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name=""></td>
+                            <!-- <td><input type="checkbox" name=""></td> -->
                             <td><label>Spa (1 hora)</label></td>
                             <td>
                                 <select id="spa">
@@ -390,10 +404,15 @@
                                     <option>6</option>
                                 </select>
                             </td>
-                            <td><label>$80.000 por persona</label></td>
+                            <td><label>$80.000<i class="description">(por persona)</i></label></td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="divTotal">
+                    <label>Total : </label>
+                    <div class="total"></div> 
+                </div>
+                <br>
                 <a href="#" onclick="app.changeViewHome(homeBody,0)"><img class="CancelReserve" src="img/app/registro/cancelar-210x50px.png"></a>
                 <a href="#" onclick="app.setReserve()">
                     <img src="img/app/reservar/reservar-105x25px.png">

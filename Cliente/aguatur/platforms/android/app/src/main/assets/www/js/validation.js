@@ -27,5 +27,6 @@ function validateDateOut(){
 		document.getElementById('dateOut').className = "";
 	}else{
 		document.getElementById('dateOut').className = "error";
+		document.getElementById("btnReserveData").disabled = true;
 	}
 }
