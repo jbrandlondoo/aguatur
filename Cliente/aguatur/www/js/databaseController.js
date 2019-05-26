@@ -135,15 +135,19 @@ function putReservation(reservationObj){
         ninos:1,
         total:100000}
 */
+  reservationObj.total = 10000;
   let db = firebase.firestore()
 
     db.collection("Reservas").doc().set({
-      IdCliente:getSessionId(),
-      FechaEntrada:reservationObj.entrada,
-      FechaSalida:reservationObj.salida,
-      Adultos:reservationObj.adultos,
-      Ninos:reservationObj.ninos,
-      Total:reservationObj.total
+      idCliente:getSessionId(),
+      fechaReserva:new Date(),
+      fechaEntrada:reservationObj.entrada,
+      fechaSalida:reservationObj.salida,
+      adultos:reservationObj.adultos,
+      ninos:reservationObj.ninos,
+      almuerzos:reservationObj.almuerzoPersona,
+      decoracionNoche:reservationObj.decoracionNoche,
+      nocheRomantica:reservationObj.spa
     })
     .then(function(){
       console.log("Documento esctrito")

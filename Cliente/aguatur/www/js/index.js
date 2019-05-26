@@ -93,16 +93,20 @@ var app = {
     },
     setReserve:()=>{
         dataReserve = Array();
-        dataReserve["entrada"]= document.getElementById("dateUp").value;
-        dataReserve["salida"]= document.getElementById("dateOut").value;
-        dataReserve["adultos"]= document.getElementById("selectAdult").value;
-        dataReserve["niños"]= document.getElementById("selectChildren").value;
-        dataReserve["nochesRomantias"]= document.getElementById("romanticNight").value;
-        dataReserve["almuerzoPersona"]= document.getElementById("lunch").value;
-        dataReserve["decoracionNoche"]= document.getElementById("rooDe").value;
-        dataReserve["spa"]= document.getElementById("spa").value;
+        dataReserve["entrada"]= new Date(document.getElementById("dateUp").value.replace("-",","));
+        dataReserve["salida"]= new Date(document.getElementById("dateOut").value.replace("-",","));
+        dataReserve["adultos"]= parseInt(document.getElementById("selectAdult").value);
+        dataReserve["ninos"]= parseInt(document.getElementById("selectChildren").value);
+        dataReserve["nochesRomantias"]= parseInt(document.getElementById("romanticNight").value);
+        dataReserve["almuerzoPersona"]= parseInt(document.getElementById("lunch").value);
+        dataReserve["decoracionNoche"]= parseInt(document.getElementById("rooDe").value);
+        dataReserve["spa"]= parseInt(document.getElementById("spa").value);
         
+        putReservation(dataReserve);
+   
+
         app.changeViewHome(viewReservesBody,3);
+        
     }
 };
 app.initilize();
