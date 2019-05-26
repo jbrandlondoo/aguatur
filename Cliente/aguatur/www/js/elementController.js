@@ -82,7 +82,7 @@ function graphQrCode(){
     if(document.getElementById("qr")!=null)document.getElementById("qr").remove();
     let q = document.createElement("div");
     q.id = "qr";
-    document.getElementById("qrIdentificacion").appendChild(q);
+    document.getElementById("codeQr").appendChild(q);
     makeQrCode(getSessionId());
 }
 //Funcion para eliminar todos los hijos dado el id de un elemento

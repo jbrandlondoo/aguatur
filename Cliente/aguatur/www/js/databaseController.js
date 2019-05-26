@@ -95,8 +95,7 @@ function findAccount(email, password){
     }).then(()=>{
       if(flag) {
         console.log("El id es: "+data.id, " y el nombre es:"+data.nombre);
-        saveSession(data);
-        getMessagePageContent(getSessionEmail());
+        saveSession(data);        
         app.changeView(login,home);
         console.log("Se encontró, sesión guardada en almacenamiento");
       }

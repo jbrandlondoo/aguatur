@@ -1,10 +1,13 @@
 function saveSession(dataItem){
     localStorage.setItem("sesion",JSON.stringify(dataItem));
+    getMessagePageContent(getSessionEmail());
+    graphQrCode(getSessionId());
     document.getElementById("btnHomeProfile").className = "visibiliBTN";
     document.getElementById("btnHomeOpNet").className = "visibiliBTN";
 
 }
 function closeSession(){ 
+    deleteChild("codeQr")
     deleteChild("messages");   
     localStorage.clear();
 }
