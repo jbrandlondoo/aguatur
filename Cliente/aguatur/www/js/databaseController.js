@@ -165,11 +165,14 @@ function getReservation(id){
   db.collection("Reservas").where("idCliente", "==", id)
     .onSnapshot(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {     
-  
-        console.log(list.push({datos:doc.data(),idDato:doc.id}));          
+        console.log(doc.data());
+        list.push({datos:doc.data(),idDato:doc.id});          
      });
-  }),(function(error) {
+  }).then(()=>{
+    setReservationList(list);
+  }
+
+  ),(function(error) {
        console.log("Error getting documents: ", error);
    });    
-return list;
 }

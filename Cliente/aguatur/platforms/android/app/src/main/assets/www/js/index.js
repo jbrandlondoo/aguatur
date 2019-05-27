@@ -8,6 +8,7 @@ var dataRegister,dataLogin,dataUpdate,loadingDiv;
 var resumeBody,messageBody,viewReservesBody;
 var benefits;
 var dataReserve, dataMessage;
+var qrCode;
 
 var currentView;
 

@@ -2,13 +2,15 @@ function saveSession(dataItem){
     localStorage.setItem("sesion",JSON.stringify(dataItem));
     getMessagePageContent(getSessionEmail());
     graphQrCode(getSessionId());
+    getReservation(getSessionId());
     document.getElementById("btnHomeProfile").className = "visibiliBTN";
     document.getElementById("btnHomeOpNet").className = "visibiliBTN";
 
 }
 function closeSession(){ 
     deleteChild("codeQr")
-    deleteChild("messages");   
+    deleteChild("messages");
+    deleteChild("reserves");   
     localStorage.clear();
 }
 function getSessionEmail(){
