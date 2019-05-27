@@ -100,6 +100,17 @@ function setReservationList(resList){
     });
         
     }
+//Imprime las reservas en el contenedor de reservas
+ function printReservation(){
+  a = getReservation(getSessionId());
+  a.then(resp=>{
+    if(resp.length > 0){
+      setReservationList(resp);
+    }else{
+      console.log("No se recibió nada")
+    }
+  })
+}   
 //Crea un elemento y le agrega el nombre de una clase
 function setEAndCName(element, className){
 

@@ -159,20 +159,61 @@ function sendMessage(messageData){
     });
 }
 function getReservation(id){
-  let list=[];
+  
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Reservas").where("idCliente", "==", id)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
+}
+function getMessageDataV2(tipo,userEmail){
+  
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Mensajes").where(tipo, "==", userEmail)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
+}
+
+function getMessageData(tipo,userEmail){
+
   let db = firebase.firestore();  
  
-  db.collection("Reservas").where("idCliente", "==", id)
+  db.collection("Mensajes").where(tipo, "==", userEmail)
     .onSnapshot(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {     
-        console.log(doc.data());
-        list.push({datos:doc.data(),idDato:doc.id});          
+        setMessages(doc.id,doc.data())           
      });
-  }).then(()=>{
-    setReservationList(list);
-  }
-
-  ),(function(error) {
+  }),(function(error) {
        console.log("Error getting documents: ", error);
    });    
+
 }
