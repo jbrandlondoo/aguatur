@@ -2,6 +2,7 @@ function saveSession(dataItem){
     localStorage.setItem("sesion",JSON.stringify(dataItem));
     getMessagePageContent(getSessionEmail());
     graphQrCode(getSessionId());
+    printReservation();
     document.getElementById("btnHomeProfile").className = "visibiliBTN";
     document.getElementById("btnHomeOpNet").className = "visibiliBTN";
 

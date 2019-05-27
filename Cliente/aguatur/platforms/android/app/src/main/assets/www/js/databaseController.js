@@ -57,38 +57,26 @@ function getHomeContent(){
 }
 //Método para obtener la visualización de los mensajes en la pagina de mensajes
 function getMessagePageContent(userEmail){
-  let destinatario=[], remitente, completo;
   
-  new Promise(function(resolve, reject) {
-    remitente=getMessageData("Remitente",userEmail);
-    destinatario=getMessageData("Destinatario",userEmail);  
-    resolve(remitente.concat(destinatario))
-  
-  }).then(function(result) { // (**)
-
-    alert(result); // 1    
-  
-  }); 
+    getMessageData("remitente",userEmail);
+    getMessageData("destinatario",userEmail);
  
 }
 //Método para obtener un listado demensajes dado si se requiere de el remitente
 //o de el destinatario, también se requiere del email
 function getMessageData(tipo,userEmail){
 
-  let list=[]  
   let db = firebase.firestore();  
  
   db.collection("Mensajes").where(tipo, "==", userEmail)
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          list.push(doc.data())             
-       });
-    }) 
-   .catch(function(error) {
+    .onSnapshot(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {     
+        setMessages(doc.id,doc.data())           
+     });
+  }),(function(error) {
        console.log("Error getting documents: ", error);
    });    
-return list;
+
 }
 
 //Función para iniciar sesión, se requiere de el email y la contraseña del usuario
@@ -115,7 +103,7 @@ function findAccount(email, password){
     }).then(()=>{
       if(flag) {
         console.log("El id es: "+data.id, " y el nombre es:"+data.nombre);
-        saveSession(data);
+        saveSession(data);        
         app.changeView(login,home);
         console.log("Se encontró, sesión guardada en almacenamiento");
       }
@@ -158,7 +146,7 @@ function putReservation(reservationObj){
     });
 
 }
-//Esta función permite enviar un mensaje
+//Esta función permite enviar un mensaje dado un objeto mensaje
 function sendMessage(messageData){
   let db = firebase.firestore()
 
@@ -169,4 +157,63 @@ function sendMessage(messageData){
     .catch(function(error){
       console.error("Error escribiendo el documento: ",error)
     });
+}
+function getReservation(id){
+  
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Reservas").where("idCliente", "==", id)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
+}
+function getMessageDataV2(tipo,userEmail){
+  
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Mensajes").where(tipo, "==", userEmail)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
+}
+
+function getMessageData(tipo,userEmail){
+
+  let db = firebase.firestore();  
+ 
+  db.collection("Mensajes").where(tipo, "==", userEmail)
+    .onSnapshot(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {     
+        setMessages(doc.id,doc.data())           
+     });
+  }),(function(error) {
+       console.log("Error getting documents: ", error);
+   });    
+
 }

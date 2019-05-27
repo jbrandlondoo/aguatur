@@ -159,17 +159,46 @@ function sendMessage(messageData){
     });
 }
 function getReservation(id){
-  let list=[];
-  let db = firebase.firestore();  
- 
-  db.collection("Reservas").where("idCliente", "==", id)
-    .onSnapshot(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {     
   
-        console.log(list.push({datos:doc.data(),idDato:doc.id}));          
-     });
-  }),(function(error) {
-       console.log("Error getting documents: ", error);
-   });    
-return list;
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Reservas").where("idCliente", "==", id)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
+}
+function getMessageDataV2(tipo,userEmail){
+  
+  return new Promise((resolve, reject)=>{
+    let list=[];
+    let db = firebase.firestore();  
+   
+    db.collection("Mensajes").where(tipo, "==", userEmail)
+      .onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {     
+    
+          list.push({datos:doc.data(),idDato:doc.id});       
+
+       });
+        resolve(list);
+    }),(function(error) {
+         console.log("Error getting documents: ", error);
+         resolve(list);
+     }) 
+
+  });  
+
 }

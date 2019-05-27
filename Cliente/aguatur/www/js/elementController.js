@@ -13,7 +13,8 @@ function setHomeSlides(URL){
 //Función para agregar el html necesario en el index para que se pongan los mensajes en la
 //página de mensajes
 function setMessages(idAttribute,message){
-console.log(message,"id:", idAttribute);
+
+
     if(document.getElementById(idAttribute)==null){
 
     let messageFather = setEAndCName("div","divMessage");
@@ -53,9 +54,6 @@ console.log(message,"id:", idAttribute);
 //Crea los elementos de reservas dada una lista de objetos reserva
 function setReservationList(resList){
 
-    resList.sort(function(a, b) {    
-        return b.datos.fechaEntrada-a.datos.fechaEntrada;
-    });
 
     resList.forEach(reserva => {
         if(document.getElementById(reserva.idDato+"-res")==null){
@@ -98,6 +96,17 @@ function setReservationList(resList){
     });
         
     }
+//Imprime las reservas en el contenedor de reservas
+ function printReservation(){
+  a = getReservation(getSessionId());
+  a.then(resp=>{
+    if(resp.length > 0){
+      setReservationList(resp);
+    }else{
+      console.log("No se recibió nada")
+    }
+  })
+}   
 //Crea un elemento y le agrega el nombre de una clase
 function setEAndCName(element, className){
 
