@@ -50,6 +50,54 @@ console.log(message,"id:", idAttribute);
     }
 
 }
+//Crea los elementos de reservas dada una lista de objetos reserva
+function setReservationList(resList){
+
+    resList.sort(function(a, b) {    
+        return b.datos.fechaEntrada-a.datos.fechaEntrada;
+    });
+
+    resList.forEach(reserva => {
+        if(document.getElementById(reserva.idDato+"-res")==null){
+            let messageFather = setEAndCName("div","divReserves");
+            messageFather.id = reserva.idDato+"-res";
+
+            let headReserve = setEAndId("div","headReserves");
+            let hearRInfo = setEAndId("div","headReserveInfo");
+            let lab1 = setLabelAndContent(completeDateFormat(reserva.datos.fechaReserva));
+            let lab2 = setLabelAndContent("   Guardada");
+
+            hearRInfo.appendChild(lab1);
+            hearRInfo.appendChild(lab2);
+
+            let headREdit = setEAndId("div","headReserveEdit");
+            let a = document.createElement("a");
+            a.href="#";
+            let labA = setLabelAndContent("Editar")
+            a.appendChild(labA);
+            headREdit.appendChild(a);
+
+            headReserve.appendChild(hearRInfo);
+            headReserve.appendChild(headREdit);
+
+            let titleRes = setEAndId("div","titleReserve");
+            let labTitle = setLabelAndContent("Reserva - "+completeDateFormat(reserva.datos.fechaEntrada));
+            titleRes.appendChild(labTitle);
+
+            let resDiv = setEAndId("div","reserve");
+            let labContent = setLabelAndContent("neaaa jajaja")
+            resDiv.appendChild(labContent);
+
+            messageFather.appendChild(headReserve);
+            messageFather.appendChild(titleRes);
+            messageFather.appendChild(resDiv);
+
+            document.getElementById("reserves").appendChild(messageFather);
+        }
+        
+    });
+        
+    }
 //Crea un elemento y le agrega el nombre de una clase
 function setEAndCName(element, className){
 

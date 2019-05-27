@@ -158,3 +158,18 @@ function sendMessage(messageData){
       console.error("Error escribiendo el documento: ",error)
     });
 }
+function getReservation(id){
+  let list=[];
+  let db = firebase.firestore();  
+ 
+  db.collection("Reservas").where("idCliente", "==", id)
+    .onSnapshot(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {     
+  
+        console.log(list.push({datos:doc.data(),idDato:doc.id}));          
+     });
+  }),(function(error) {
+       console.log("Error getting documents: ", error);
+   });    
+return list;
+}
