@@ -543,11 +543,10 @@ input[type=checkbox]{
 }
 
 #imgProfile{
-	height: 151px;
-    width: 122px;
+	height: 126px;
+    width: 112px;
     border-radius: 10px;
     margin: auto;
-    border: solid 1px blue;
 }
 
 /*table*/
