@@ -12,7 +12,7 @@ function setHomeSlides(URL){
 }
 //Función para agregar el html necesario en el index para que se pongan los mensajes en la
 //página de mensajes
-function setMessages(idAttribute,message){
+function setMessages(idAttribute,message,kind){
 
 
     if(document.getElementById(idAttribute)==null){
@@ -47,16 +47,17 @@ function setMessages(idAttribute,message){
     messageFather.appendChild(divMessageTitle);
     messageFather.appendChild(divMessageText);
 
-    document.getElementById("messages").appendChild(messageFather);
+    if(kind==1)document.getElementById("messages").appendChild(messageFather);
+    else document.getElementById("messages").insertAdjacentElement('afterbegin', messageFather)
     }
 
 }
 //Crea los elementos de reservas dada una lista de objetos reserva
-function setReservationList(resList){
-
-    /*resList.sort(function(a, b) {    
-        return b.datos.fechaEntrada-a.datos.fechaEntrada;
-    });*/
+function setReservationList(resList,kind){
+    if(resList[0]!=undefined){
+    resList.sort(function(a, b) {    
+        return a.datos.fechaReserva-b.datos.fechaReserva;
+    });
 
     resList.forEach(reserva => {
         if(document.getElementById(reserva.idDato+"-res")==null){
@@ -86,20 +87,61 @@ function setReservationList(resList){
             titleRes.appendChild(labTitle);
 
             let resDiv = setEAndId("div","reserve");
-            let labContent = setLabelAndContent("Se tiene una reserva desde "+completeDateFormat(reserva.datos.fechaEntrada)+
-            "hasta: "+completeDateFormat(reserva.datos.fechaSalida))
-            resDiv.appendChild(labContent);
+            console.log(reserva.datos);
+            //let labContent = setLabelAndContent(createDescription(reserva.datos));
+            let l=document.createElement("pre");
+            l.textContent=createDescription(reserva.datos);
+
+            resDiv.appendChild(l);
 
             messageFather.appendChild(headReserve);
             messageFather.appendChild(titleRes);
             messageFather.appendChild(resDiv);
 
-            document.getElementById("reserves").appendChild(messageFather);
+            if(kind==1)document.getElementById("reserves").appendChild(messageFather);
+            else document.getElementById("reserves").insertAdjacentElement('afterbegin', messageFather)           
         }
         
     });
         
     }
+}
+//Create description element
+function createDescription(datos){
+let texto="";
+
+    if(daysBetween(datos.fechaEntrada,datos.fechaSalida)>1) texto=texto.concat("Reserva de ("+daysBetween(datos.fechaEntrada,datos.fechaSalida)+") noches \r\n");
+    if(daysBetween(datos.fechaEntrada,datos.fechaSalida)==1) texto=texto.concat("Reserva de ("+daysBetween(datos.fechaEntrada,datos.fechaSalida)+") noche \r\n");
+
+    if(datos.adultos>1) texto=texto.concat("para ("+datos.adultos+") adultos");
+    if(datos.adultos==1) texto=texto.concat("para ("+datos.adultos+") adulto ");
+
+    if(datos.ninos>1) texto=texto.concat("y para ("+datos.ninos+") niños");
+    if(datos.ninos==1) texto=texto.concat("y para ("+datos.ninos+") niño");
+  
+    if(datos.almuerzos>0 || datos.decoracionNoche>0 || datos.nocheRomantica>0 || datos.spa>0){
+        texto = texto.concat("\ncon servicio de:\n")
+        if(datos.nocheRomantica>0){
+            texto = (datos.nocheRomantica>1)?texto.concat("("+datos.nocheRomantica+") noches romanticas"):texto.concat("("+datos.nocheRomantica+") noche romantica");
+            texto=texto.concat("\n")
+        }
+        if(datos.almuerzos>0){
+            texto = (datos.almuerzos>1)?texto.concat("("+datos.almuerzos+") almuerzos "):texto.concat("("+datos.almuerzos+") almuerzo ");
+            texto=texto.concat("(en el día de ingreso)\n")
+        }
+        if(datos.decoracionNoche>0){
+            texto = (datos.decoracionNoche>1)?texto.concat("Decoración de habitación por ("+datos.decoracionNoche+") noches"):texto.concat("Decoración de habitación por ("+datos.decoracionNoche+") noche");
+            texto=texto.concat("\n")
+        }
+        if(datos.spa>0){
+            texto = (datos.spa>1)?texto.concat("Entrada al spa para ("+datos.spa+") personas"):texto.concat("Entrada al spa para ("+datos.spa+") persona");
+            texto=texto.concat("\n")
+        }
+    }
+    texto = texto.concat("\nDesde el: "+reserveDate(datos.fechaEntrada)+"\nHasta el: "+reserveDate(datos.fechaSalida))    
+
+    return texto;
+}
 //Imprime las reservas en el contenedor de reservas
  function printReservation(){
   a = getReservation(getSessionId());

@@ -424,8 +424,15 @@
             <div id="messageBody" class="hidden">
                 <label><b>MENSAJES</b></label>
                 <button id="btnMessageModal" data-toggle="modal" data-target="#modalMessage">+</button>
-                <div class="scrollingMessage" id="messages">
-                    
+                <div class="scrollingMessage">
+                    <div id="messages">
+                        
+                    </div>
+
+                    <!-- este no se borra -->
+                    <br>
+                    <br>
+                    <br>
                     <br>
                     <br>
                 </div>
@@ -504,7 +511,7 @@
                                     </div>
                                 </td>
                                 <td><a href="#" onclick="edit(this)">Editar</a>
-                                    <a href="#" onclick="save(this)" class="hidden">Cambiar</a>
+                                    <a href="#" onclick="save(this,0)" class="hidden">Cambiar</a>
                                 </td>
                             </tr>
                             <tr>
@@ -515,7 +522,7 @@
                                     </div>
                                 </td>
                                 <td><a href="#" onclick="edit(this)">Editar</a>
-                                    <a href="#" onclick="save(this)" class="hidden">Cambiar</a>
+                                    <a href="#" onclick="save(this,1)" class="hidden">Cambiar</a>
                                 </td>
                             </tr>
                             <tr>
@@ -526,7 +533,7 @@
                                     </div>
                                 </td>
                                 <td><a href="#" onclick="edit(this)">Editar</a>
-                                    <a href="#" onclick="save(this)" class="hidden">Cambiar</a>
+                                    <a href="#" onclick="save(this,2)" class="hidden">Cambiar</a>
                                 </td>
                             </tr>
                             <tr>
@@ -537,7 +544,7 @@
                                     </div>
                                 </td>
                                 <td><a href="#" onclick="edit(this)">Editar</a>
-                                    <a href="#" onclick="save(this)" class="hidden">Cambiar</a>
+                                    <a href="#" onclick="save(this,3)" class="hidden">Cambiar</a>
                                 </td>
                             </tr>
                         </tbody>

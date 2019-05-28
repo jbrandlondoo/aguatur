@@ -7,6 +7,7 @@ function start(){
   config = databaseConfig();
   //agregación de elementos al home
   getHomeContent();
+  
   setTimeout(()=>{
     if(localStorage.getItem("sesion")){
             app.changeView(loadingDiv,home);
@@ -16,6 +17,10 @@ function start(){
           app.changeView(loadingDiv,panelRegisterLogin);
       }
   }, 1500);
+  if(localStorage.getItem("sesion"))getMessagePageContent(getSessionEmail());
+  if(localStorage.getItem("sesion"))getReservationPageContent();
+  if(localStorage.getItem("sesion"))printSessionData();
+  if(localStorage.getItem("sesion"))graphQrCode(getSessionId());
 }
 
 //Funcion para hacer el registro de la persona en la aplicación
@@ -57,11 +62,12 @@ function getHomeContent(){
 }
 //Método para obtener la visualización de los mensajes en la pagina de mensajes
 function getMessagePageContent(userEmail){
-  
+
     getMessageData("remitente",userEmail);
     getMessageData("destinatario",userEmail);
- 
+    
 }
+
 //Método para obtener un listado demensajes dado si se requiere de el remitente
 //o de el destinatario, también se requiere del email
 function getMessageData(tipo,userEmail){
@@ -71,7 +77,7 @@ function getMessageData(tipo,userEmail){
   db.collection("Mensajes").where(tipo, "==", userEmail)
     .onSnapshot(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {     
-        setMessages(doc.id,doc.data())           
+        setMessages(doc.id,doc.data(),1)           
      });
   }),(function(error) {
        console.log("Error getting documents: ", error);
@@ -95,7 +101,9 @@ function findAccount(email, password){
               data={
                 id:doc.id,
                 nombre:doc.data().Nombre,
-                correo:doc.data().Correo,                                
+                correo:doc.data().Correo,
+                password:doc.data().Password,
+                phone:doc.data().Phone                                
             };
               flag = true;
             }                        
@@ -123,23 +131,14 @@ function findAccount(email, password){
 
 //Función para hacer una reserva dado un objeto de reserva
 function putReservation(reservationObj){
-
-  reservationObj.total = 10000;
+  
   let db = firebase.firestore()
 
-    db.collection("Reservas").doc().set({
-      idCliente:getSessionId(),
-      fechaReserva:new Date(),
-      fechaEntrada:reservationObj.entrada,
-      fechaSalida:reservationObj.salida,
-      adultos:reservationObj.adultos,
-      ninos:reservationObj.ninos,
-      almuerzos:reservationObj.almuerzoPersona,
-      decoracionNoche:reservationObj.decoracionNoche,
-      nocheRomantica:reservationObj.spa
-    })
+    db.collection("Reservas").doc().set(reservationObj)
     .then(function(){
+      
       console.log("Documento esctrito")
+      setReservationList([{idDato:(new Date).getTime().toString(),datos:reservationObj}],0);
     })
     .catch(function(error){
       console.error("Error escribiendo el documento: ",error)
@@ -170,7 +169,7 @@ function getReservation(id){
     
           list.push({datos:doc.data(),idDato:doc.id});       
 
-       });
+       });     
         resolve(list);
     }),(function(error) {
          console.log("Error getting documents: ", error);
@@ -178,9 +177,28 @@ function getReservation(id){
      }) 
 
   });  
-
 }
-function getMessageDataV2(tipo,userEmail){
+function getReservationPageContent(){
+  a = getReservation(getSessionId(),1);
+  a.then(resp=>{
+    if(resp.length > 0){
+		setReservationList(resp);
+    }else{
+			console.log("no recibi ni chimba")
+    }
+  })
+}
+function profileModify(profObject,id){
+  let db = firebase.firestore(); 
+  db.collection("Registrados").doc(id).update(profObject)
+  .then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+}
+/*function getMessageDataV2(tipo,userEmail){
   
   return new Promise((resolve, reject)=>{
     let list=[];
@@ -201,19 +219,4 @@ function getMessageDataV2(tipo,userEmail){
 
   });  
 
-}
-
-function getMessageData(tipo,userEmail){
-
-  let db = firebase.firestore();  
- 
-  db.collection("Mensajes").where(tipo, "==", userEmail)
-    .onSnapshot(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {     
-        setMessages(doc.id,doc.data())           
-     });
-  }),(function(error) {
-       console.log("Error getting documents: ", error);
-   });    
-
-}
+}*/

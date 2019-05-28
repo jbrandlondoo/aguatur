@@ -90,15 +90,18 @@ var app = {
         app.changeView(panelRegisterLogin,benefits);
     },
     setReserve:()=>{
-        dataReserve = Array();
-        dataReserve["entrada"]= new Date(document.getElementById("dateUp").value.replace("-",","));
-        dataReserve["salida"]= new Date(document.getElementById("dateOut").value.replace("-",","));
+        dataReserve = new Object();
+        dataReserve["idCliente"]= getSessionId();
+        dataReserve["fechaReserva"]= new Date();
+        dataReserve["fechaEntrada"]= new Date(document.getElementById("dateUp").value.replace("-",","));
+        dataReserve["fechaSalida"]= new Date(document.getElementById("dateOut").value.replace("-",","));
         dataReserve["adultos"]= parseInt(document.getElementById("selectAdult").value);
         dataReserve["ninos"]= parseInt(document.getElementById("selectChildren").value);
-        dataReserve["nochesRomantias"]= parseInt(document.getElementById("romanticNight").value);
-        dataReserve["almuerzoPersona"]= parseInt(document.getElementById("lunch").value);
+        dataReserve["almuerzos"]= parseInt(document.getElementById("lunch").value);
+        dataReserve["nocheRomantica"]= parseInt(document.getElementById("romanticNight").value);        
         dataReserve["decoracionNoche"]= parseInt(document.getElementById("rooDe").value);
         dataReserve["spa"]= parseInt(document.getElementById("spa").value);
+        dataReserve["total"]= 12000;        
         
         putReservation(dataReserve);
    
@@ -170,13 +173,55 @@ tem = id;
     id.className = "hidden";
     id.parentElement.children[1].className = "show";
 }
-
-function save(id){
+function save(id,param){    
+    let sesion = new Object;
+    sesion.id=getSessionId();
+    sesion.nombre=getSessionName();
+    sesion.correo=getSessionEmail();
+    sesion.password=getSessionPassword();
+    sesion.phone=getSessionPhone();
+    
     id.parentElement.parentElement.children[0].children[0].children[1].readOnly=true;
     id.className = "hidden";
-    id.parentElement.children[0].className = "show";
-    var value = id.parentElement.parentElement.children[0].children[0].children[1].value;
-    console.log(value);
+    id.parentElement.children[0].className = "show";    
+    let value = id.parentElement.parentElement.children[0].children[0].children[1].value;
+
+    if(param==0){
+        if(getSessionName()!=value && value.length>=2){
+            profileModify({Nombre:value},getSessionId());
+            sesion.nombre=value;
+            localStorage.removeItem("sesion");
+            localStorage.setItem("sesion",JSON.stringify(sesion));
+
+        }
+            
+    }
+    if(param==1){
+        if(getSessionPhone()!=value && (value >= 1000000000 && value <= 9999999999)){
+            profileModify({Phone:value},getSessionId());
+            sesion.phone=value;
+            localStorage.removeItem("sesion");
+            localStorage.setItem("sesion",JSON.stringify(sesion));
+        }
+        
+    }
+    if(param==2){
+        if(getSessionEmail()!=value && value.length>=0){
+            profileModify({Correo:value},getSessionId());
+            sesion.correo=value;
+            localStorage.removeItem("sesion");
+            localStorage.setItem("sesion",JSON.stringify(sesion));
+        }
+    }
+    if(param==3){        
+        if(getSessionPassword()!=value && value.length>=6){
+            profileModify({Password:value},getSessionId());
+            sesion.password=value;
+            localStorage.removeItem("sesion");
+            localStorage.setItem("sesion",JSON.stringify(sesion));
+        }
+    }
+printSessionData();
 }
 
 function getResumenReserve(){

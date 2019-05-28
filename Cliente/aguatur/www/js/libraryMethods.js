@@ -16,8 +16,8 @@ function makeQrCode(texto){
 
     new QRCode("qr", {
         text: texto,
-        width: 94,
-        height: 94,
+        width: 95,
+        height: 95,
         colorDark : "#ffffff",
         colorLight : "#117abf",
         correctLevel : QRCode.CorrectLevel.H
@@ -25,3 +25,13 @@ function makeQrCode(texto){
     
     
 }
+//Formato de fecha para reservas
+function reserveDate(dateObject){    
+    let options = {weekday:'long',day:'numeric',month:'short', year:'numeric'};
+    return dateObject.toLocaleDateString("es-CO",options);   
+}
+function daysBetween( date1, date2 ) {    
+    var one_day=1000*60*60*24;
+    var difference_ms = date2.getTime() -date1.getTime();          
+    return Math.round(difference_ms/one_day); 
+  }

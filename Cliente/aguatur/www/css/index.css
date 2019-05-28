@@ -28,8 +28,13 @@ label{
 	color: white;
 	line-height: 11px;
 }
-
- .hidden{
+pre{
+	font-family: sans-serif;
+	color: white;
+	font-size: 16px;
+    line-height: 20px;
+}
+.hidden{
     display: none;
  }
  .show{
@@ -585,7 +590,9 @@ input[type=checkbox]{
     width: 120px;
     background: rgb(17, 122, 191);
     border-radius: 11px;
-    margin: auto;
+	margin: auto;
+	padding-top: 13px;
+    padding-left: 13px;
 }
 
 /*button*/
