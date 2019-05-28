@@ -14,7 +14,7 @@ function setHomeSlides(URL){
 //página de mensajes
 function setMessages(idAttribute,message,kind){
 
-
+    if(message!=undefined){
     if(document.getElementById(idAttribute)==null){
 
     let messageFather = setEAndCName("div","divMessage");
@@ -50,6 +50,7 @@ function setMessages(idAttribute,message,kind){
     if(kind==1)document.getElementById("messages").appendChild(messageFather);
     else document.getElementById("messages").insertAdjacentElement('afterbegin', messageFather)
     }
+}
 
 }
 //Crea los elementos de reservas dada una lista de objetos reserva
@@ -113,14 +114,14 @@ let texto="";
     if(daysBetween(datos.fechaEntrada,datos.fechaSalida)>1) texto=texto.concat("Reserva de ("+daysBetween(datos.fechaEntrada,datos.fechaSalida)+") noches \r\n");
     if(daysBetween(datos.fechaEntrada,datos.fechaSalida)==1) texto=texto.concat("Reserva de ("+daysBetween(datos.fechaEntrada,datos.fechaSalida)+") noche \r\n");
 
-    if(datos.adultos>1) texto=texto.concat("para ("+datos.adultos+") adultos");
+    if(datos.adultos>1) texto=texto.concat("para ("+datos.adultos+") adultos ");
     if(datos.adultos==1) texto=texto.concat("para ("+datos.adultos+") adulto ");
 
-    if(datos.ninos>1) texto=texto.concat("y para ("+datos.ninos+") niños");
-    if(datos.ninos==1) texto=texto.concat("y para ("+datos.ninos+") niño");
+    if(datos.ninos>1) texto=texto.concat("y ("+datos.ninos+") niños");
+    if(datos.ninos==1) texto=texto.concat("y ("+datos.ninos+") niño");
   
     if(datos.almuerzos>0 || datos.decoracionNoche>0 || datos.nocheRomantica>0 || datos.spa>0){
-        texto = texto.concat("\ncon servicio de:\n")
+        texto = texto.concat("\nServicios disponibles:\n")
         if(datos.nocheRomantica>0){
             texto = (datos.nocheRomantica>1)?texto.concat("("+datos.nocheRomantica+") noches romanticas"):texto.concat("("+datos.nocheRomantica+") noche romantica");
             texto=texto.concat("\n")
