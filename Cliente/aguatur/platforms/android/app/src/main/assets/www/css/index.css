@@ -34,6 +34,12 @@ pre{
 	font-size: 16px;
     line-height: 20px;
 }
+.imProf{
+	height: 151px;
+    width: 122px;
+    border-radius: 10px;
+    margin: auto;    
+}
 .hidden{
     display: none;
  }
@@ -543,11 +549,10 @@ input[type=checkbox]{
 }
 
 #imgProfile{
-	height: 151px;
-    width: 122px;
+	height: 126px;
+    width: 112px;
     border-radius: 10px;
     margin: auto;
-    border: solid 1px blue;
 }
 
 /*table*/
@@ -774,6 +779,8 @@ input[type=checkbox]{
     background: white;
     border-radius: 10px 0 0 10px;
     float: right;
+    color: rgb(19, 81, 128);
+    text-align: center;
 }
 
 .divTotal{

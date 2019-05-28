@@ -87,8 +87,7 @@ function setReservationList(resList,kind){
             let labTitle = setLabelAndContent("Reserva - "+completeDateFormat(reserva.datos.fechaEntrada));
             titleRes.appendChild(labTitle);
 
-            let resDiv = setEAndId("div","reserve");
-            console.log(reserva.datos);
+            let resDiv = setEAndId("div","reserve");            
             //let labContent = setLabelAndContent(createDescription(reserva.datos));
             let l=document.createElement("pre");
             l.textContent=createDescription(reserva.datos);
