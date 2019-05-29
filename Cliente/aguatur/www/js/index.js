@@ -100,7 +100,8 @@ var app = {
         dataReserve["nocheRomantica"]= parseInt(document.getElementById("romanticNight").value);        
         dataReserve["decoracionNoche"]= parseInt(document.getElementById("rooDe").value);
         dataReserve["spa"]= parseInt(document.getElementById("spa").value);
-        dataReserve["total"]= 12000;        
+        dataReserve["total"]=  (daysBetween(dataReserve.fechaEntrada,dataReserve.fechaSalida)*100000)+(dataReserve.nocheRomantica*150000)+(dataReserve.almuerzos*15000)+
+        (dataReserve.decoracionNoche*60000)+(dataReserve.spa*80000);        
         
         putReservation(dataReserve);
    
@@ -231,6 +232,7 @@ function getResumenReserve(){
         addResumen();
         app.changeViewHome(resumeBody,2);
         document.getElementById('dateOut').className = "";
+        document.getElementById("secondPrice").innerHTML=document.getElementById("firstPrice").innerHTML;
     }
 }
 

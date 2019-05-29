@@ -25,6 +25,7 @@ function validateDateOut(){
 	if (dateIn < out) {
 		document.getElementById("btnReserveData").disabled = false;
 		document.getElementById('dateOut').className = "";
+		document.getElementById("firstPrice").innerHTML="$"+daysBetween(dateIn,out)*100000;
 	}else{
 		document.getElementById('dateOut').className = "error";
 		document.getElementById("btnReserveData").disabled = true;
